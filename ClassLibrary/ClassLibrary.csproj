@@ -46,6 +46,7 @@
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsProduct.cs" />
     <Compile Include="clsOrders.cs" />
+    <Compile Include="clsSupplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestClass.cs" />
     <Compile Include="TestMethod.cs" />
