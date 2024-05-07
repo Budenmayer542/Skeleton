@@ -2,8 +2,7 @@
 {
     public class clsSupplier
     {
-        public clsSupplier()
-        {
-        }
+        public object Active { get; set; }
+        public object DateAdded { get; set; }
     }
 }

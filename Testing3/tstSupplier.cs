@@ -13,5 +13,25 @@ namespace Testing3
             clsSupplier AnSupplier = new clsSupplier();
             Assert.IsNotNull(AnSupplier);
         }
+
+        [TestMethod]
+        public void SupplierActiveOk()
+        {
+            clsSupplier AnSupplier = new clsSupplier();
+            Boolean TestData = true;
+            AnSupplier.Active = TestData;
+            Assert.AreEqual(AnSupplier.Active, TestData);
+        }
+
+        [TestMethod]
+        public void SupplierDateAddedOk()
+        {
+            clsSupplier AnSupplier = new clsSupplier();
+            DateTime TestData = DateTime.Now.Date;
+            AnSupplier.DateAdded = TestData;
+            Assert.AreEqual(AnSupplier.DateAdded, TestData);
+        }
     }
+
+   
 }
