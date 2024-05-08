@@ -74,7 +74,7 @@ namespace Testing4
         {  //create an instance of the class we want to create
             clsOrders AnOrder = new clsOrders();
             //create some test data to assign to the property
-            Decimal TestData = 5.15;
+            double TestData = 5.15;
             //assign the data to the property
             AnOrder.SubTotal = TestData;
         }
@@ -84,7 +84,7 @@ namespace Testing4
         {  //create an instance of the class we want to create
             clsOrders AnOrder = new clsOrders();
             //create some test data to assign to the property
-            Decimal TestData = 5.15;
+            double TestData = 5.15;
             //assign the data to the property
             AnOrder.Total = TestData; 
         }
