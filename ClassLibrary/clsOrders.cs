@@ -8,8 +8,8 @@ namespace ClassLibrary
         public int OrderNo { get; set; }
         public int ItemCount { get; set; }
         public bool Dispatched { get; set; }
-        public decimal SubTotal { get; set; }
-        public decimal Total { get; set; }
+        public double SubTotal { get; set; }
+        public double Total { get; set; }
         public string DeliveryNote { get; set; }
     }
 }
