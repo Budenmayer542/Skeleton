@@ -18,16 +18,16 @@ namespace Testing4
         }
 
         [TestMethod]
-        public void ActivePropertyOK()
+        public void DispatchedPropertyOK()
         {
             //create an instance of the calss we want to create
             clsOrders AnOrder = new clsOrders();
             //create some test date to assign to the property
             Boolean TestData = true;
             //assign the date to the property
-            AnOrder.Active = TestData;
+            AnOrder.Dispatched = TestData;
             //test to see that the two values are the same 
-            Assert.AreEqual(AnOrder.Active, TestData);
+            Assert.AreEqual(AnOrder.Dispatched, TestData);
         }
 
         [TestMethod]
@@ -76,6 +76,30 @@ namespace Testing4
             //create some test data to assign to the property
             Decimal TestData = 5.15;
             //assign the data to the property
+            AnOrder.SubTotal = TestData;
+        }
+
+        [TestMethod]
+        public void TotalPropertyOK()
+        {  //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //create some test data to assign to the property
+            Decimal TestData = 5.15;
+            //assign the data to the property
+            AnOrder.Total = TestData; 
+        }
+
+        [TestMethod]
+        public void DeliveryNotePropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsOrders AnOrder = new clsOrders();
+            //create some test data to assign to the property
+            string TestData = "Do not ring the doorbell.";
+            //assign the data to the property
+            AnOrder.DeliveryNote = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnOrder, TestData);
         }
     }
 }
