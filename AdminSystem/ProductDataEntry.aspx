@@ -8,8 +8,22 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
+        <asp:Label ID="lblComicID" runat="server" style="z-index: 1; left: 23px; top: 25px; position: absolute" Text="ComicID" height="19px" width="150px"></asp:Label>
+        <asp:TextBox ID="txtComicID" runat="server" style="z-index: 1; position: absolute; left: 205px; top: 25px;"></asp:TextBox>
+        <asp:Label ID="lblComicName" runat="server" style="z-index: 1; left: 23px; top: 55px; position: absolute" Text="Comic Name" height="19px" width="150px"></asp:Label>
+        <asp:TextBox ID="txtComicName" runat="server" style="z-index: 1; top: 55px; position: absolute; left: 205px"></asp:TextBox>
+        <asp:Label ID="lblComicInitialReleaseDate" runat="server" style="z-index: 1; left: 23px; top: 85px; position: absolute" Text="Comic initial release date" height="19px"></asp:Label>
+        <asp:TextBox ID="txtComicInitialReleaseDate" runat="server" style="z-index: 1; top: 85px; position: absolute; left: 205px"></asp:TextBox>
+        <asp:Label ID="lblComicArtist" runat="server" style="z-index: 1; left: 23px; top: 115px; position: absolute" Text="Comic artist" height="19px" width="150px"></asp:Label>
+        <asp:TextBox ID="txtComicArtist" runat="server" style="z-index: 1; top: 115px; position: absolute; left: 205px"></asp:TextBox>
+        <asp:Label ID="lblComicPrice" runat="server" style="z-index: 1; left: 23px; top: 145px; position: absolute" Text="Comic price" height="19px" width="150px"></asp:Label>
+        <asp:TextBox ID="txtComicPrice" runat="server" style="z-index: 1; top: 145px; position: absolute; left: 205px"></asp:TextBox>
+        <asp:CheckBox ID="ckbxIsComicInStock" runat="server" style="z-index: 1; top: 345px; position: absolute; left: 61px" Text="Comic in stock" />
+        <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 33px; top: 400px; position: absolute" Text="OK" />
+        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 125px; top: 400px; position: absolute" Text="Cancel" />
+        <asp:Label ID="lblComicGenre" runat="server" style="z-index: 1; left: 23px; top: 175px; position: absolute" Text="Comic genre" height="19px" width="150px"></asp:Label>
+        <asp:TextBox ID="txtComicGenre" runat="server" style="z-index: 1; top: 175px; position: absolute; left: 205px"></asp:TextBox>
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 146px; position: absolute; top: 588px"></asp:Label>
     </form>
 </body>
 </html>
