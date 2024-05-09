@@ -64,8 +64,8 @@ namespace Testing3
         {
             clsSupplier AnSupplier = new clsSupplier();
             DateTime TestData = DateTime.Now.Date;
-            AnSupplier.DateAdded = TestData;
-            Assert.AreEqual(AnSupplier.DateAdded, TestData);
+            AnSupplier.InitialContractDate = TestData;
+            Assert.AreEqual(AnSupplier.InitialContractDate, TestData);
         }
 
         [TestMethod]
@@ -73,8 +73,8 @@ namespace Testing3
         {
             clsSupplier AnSupplier = new clsSupplier();
             Boolean TestData = true;
-            AnSupplier.Active = TestData;
-            Assert.AreEqual(AnSupplier.Active, TestData);
+            AnSupplier.SupplierActive = TestData;
+            Assert.AreEqual(AnSupplier.SupplierActive, TestData);
         }
 
  
