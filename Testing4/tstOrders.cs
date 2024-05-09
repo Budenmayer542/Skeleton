@@ -31,16 +31,16 @@ namespace Testing4
         }
 
         [TestMethod]
-        public void DateAddedPropertyOK()
+        public void DateOfOrderPropertyOK()
         {
             //create an instance of the class we want to create
             clsOrders AnOrder = new clsOrders();
             //create some test data to assign to the property
             DateTime TestData = DateTime.Now.Date;
             //assign the data to the property
-            AnOrder.DateAdded = TestData;
+            AnOrder.DateOfOrder = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnOrder.DateAdded, TestData);
+            Assert.AreEqual(AnOrder.DateOfOrder, TestData);
         }
 
         [TestMethod]
