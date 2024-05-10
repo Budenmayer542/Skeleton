@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Net;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace Testing2
 {
