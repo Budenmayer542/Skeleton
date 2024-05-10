@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/ClassLibrary/TestClass.cs
+/ClassLibrary/Assert.cs

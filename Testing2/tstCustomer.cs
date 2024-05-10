@@ -1,23 +1,22 @@
 ﻿using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
 
 namespace Testing2
 {
     [TestClass]
     public class tstCustomer
     {
+        private object TestData;
+
         [TestMethod]
-        public void InstanceOk()
+        public void Instanceok()
         {
-            //create an instance of the class we want to create
+            //create an instance of the class we want to create 
             clsCustomer AnCustomer = new clsCustomer();
             //test to see that it exists
             Assert.IsNotNull(AnCustomer);
         }
-       
     }
 }
