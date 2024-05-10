@@ -18,5 +18,6 @@ namespace Testing2
             //test to see that it exists
             Assert.IsNotNull(AnCustomer);
         }
+       
     }
 }
