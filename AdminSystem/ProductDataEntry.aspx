@@ -18,12 +18,12 @@
         <asp:TextBox ID="txtComicArtist" runat="server" style="z-index: 1; top: 115px; position: absolute; left: 205px"></asp:TextBox>
         <asp:Label ID="lblComicPrice" runat="server" style="z-index: 1; left: 23px; top: 145px; position: absolute" Text="Comic price" height="19px" width="150px"></asp:Label>
         <asp:TextBox ID="txtComicPrice" runat="server" style="z-index: 1; top: 145px; position: absolute; left: 205px"></asp:TextBox>
-        <asp:CheckBox ID="ckbxIsComicInStock" runat="server" style="z-index: 1; top: 345px; position: absolute; left: 61px" Text="Comic in stock" />
-        <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 33px; top: 400px; position: absolute" Text="OK" />
-        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 125px; top: 400px; position: absolute" Text="Cancel" />
+        <asp:CheckBox ID="ckbxIsComicInStock" runat="server" style="z-index: 1; top: 212px; position: absolute; left: 200px" Text="Comic in stock" OnCheckedChanged="ckbxIsComicInStock_CheckedChanged" />
+        <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 195px; top: 269px; position: absolute" Text="OK" />
+        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 271px; top: 269px; position: absolute" Text="Cancel" />
         <asp:Label ID="lblComicGenre" runat="server" style="z-index: 1; left: 23px; top: 175px; position: absolute" Text="Comic genre" height="19px" width="150px"></asp:Label>
         <asp:TextBox ID="txtComicGenre" runat="server" style="z-index: 1; top: 175px; position: absolute; left: 205px"></asp:TextBox>
-        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 146px; position: absolute; top: 588px"></asp:Label>
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 25px; position: absolute; top: 341px"></asp:Label>
     </form>
 </body>
 </html>
