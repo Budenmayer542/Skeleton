@@ -20,12 +20,12 @@ namespace Testing2
             throw new NotImplementedException();
         }
 
-        internal static void IsNotNull(DateTime signUp, DateTime testData)
+        internal static void AreEqual(DateTime signUp, DateTime testData)
         {
             throw new NotImplementedException();
         }
 
-        internal static void IsNotNull(string fullName, string testData)
+        internal static void AreEqual(string fullName, string testData)
         {
             throw new NotImplementedException();
         }

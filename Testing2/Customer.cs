@@ -47,7 +47,7 @@ namespace Testing2
             //assign the data to the property
             AnCustomer.SignUp = TestData;
             //test to see that the two values are the same
-            Assert.IsNotNull(AnCustomer.SignUp, TestData);
+            Assert.AreEqual(AnCustomer.SignUp, TestData);
         }
         public void FullNamepropertyok()
         { //create an instance of the class we want to create
@@ -57,7 +57,7 @@ namespace Testing2
             //assign the data to the property
             AnCustomer.FullName = TestData;
             //test to see that the two values are the same
-            Assert.IsNotNull(AnCustomer.FullName, TestData);
+            Assert.AreEqual(AnCustomer.FullName, TestData);
         }
         public void EmailAddresspropertyok()
         { //create an instance of the class we want to create
@@ -69,7 +69,7 @@ namespace Testing2
             //aasign the data to the property 
             AnCustomer.EmailAddress = TestData;
             //test to see that the two values are the same
-            Assert.IsNotNull(AnCustomer.EmailAddress, TestData);
+            Assert.AreEqual(AnCustomer.EmailAddress, TestData);
         }
         public void PhoneNumberproperty()
         { //create an instance of the class we want to create
@@ -79,7 +79,7 @@ namespace Testing2
             //assign the dat to the property
             AnCustomer.PhoneNumber = TestData;
             //test to see that the two values are the same
-            Assert.IsNotNull(AnCustomer.PhoneNumber, TestData);
+            Assert.AreEqual(AnCustomer.PhoneNumber, TestData);
         }
     }
 }
