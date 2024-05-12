@@ -118,19 +118,35 @@ namespace ClassLibrary
             }
         }
 
-        public bool Find(int orderNo)
+        //find method
+        public bool Find(int OrderNo)
         {
-            //set the private data members to the test data value
-            mOrderNo = 21;
-            mDateOfOrder = Convert.ToDateTime("23/12/2022");
-            mItemCount = 11;
-            mDispatched = true;
-            mSubTotal = 11.00;
-            mTotal = 12.00;
-            mDeliveryNote = "test";
-                
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the paramete for the order number to search for
+            DB.AddParameter("@OrderNo", OrderNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrders_FilterByOrderNo");
+            //if one record is found
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
+                mDateOfOrder = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfOrder"]);
+                mItemCount = Convert.ToInt32(DB.DataTable.Rows[0]["ItemCount"]);
+                mDispatched = Convert.ToBoolean(DB.DataTable.Rows[0]["Dispatched"]);
+                mSubTotal = Convert.ToDouble(DB.DataTable.Rows[0]["SubTotal"]);
+                mTotal = Convert.ToDouble(DB.DataTable.Rows[0]["OrderTotal"]);
+                mDeliveryNote = Convert.ToString(DB.DataTable.Rows[0]["DeliveryNote"]);
+                //return that everything wored OK
+                return true;
+            }
+            //if no record was found
+            else 
+            { 
+                //return false indicating there is a problem
+                return false; 
+            }
         }
     }
 }
