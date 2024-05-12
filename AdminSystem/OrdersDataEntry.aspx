@@ -7,19 +7,20 @@
     <title></title>
     <style type="text/css">
         #form1 {
-            height: 391px;
-            width: 394px;
+            height: 448px;
+            width: 479px;
         }
     </style>
 </head>
 <body style="height: 407px">
-    &nbsp;<form id="form1" runat="server">
+    <form id="form1" runat="server">
         <div>
         </div>
         <asp:Label ID="lblOrderNo" runat="server" height="19px" style="z-index: 1; left: 12px; top: 36px; position: absolute" Text="Order No" width="86px"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:CheckBox ID="chkDispatched" runat="server" style="z-index: 1; left: 148px; top: 272px; position: absolute" Text="Dispatched" />
         <asp:TextBox ID="txtDateOfOrder" runat="server" style="z-index: 1; left: 128px; top: 109px; position: absolute"></asp:TextBox>
+        <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 363px; top: 33px; position: absolute" Text="Find" />
         <br />
         <asp:Label ID="lblItemCount" runat="server" height="19px" style="z-index: 1; left: 12px; top: 67px; position: absolute" Text="Item Count" width="86px"></asp:Label>
         <asp:TextBox ID="txtItemCount" runat="server" style="z-index: 1; left: 128px; top: 68px; position: absolute"></asp:TextBox>
@@ -40,6 +41,11 @@
         </p>
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 201px; top: 318px; position: absolute" Text="Cancel" />
         <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 141px; top: 318px; position: absolute; height: 26px;" Text="OK" />
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
     </form>
+    &nbsp;
 </body>
 </html>

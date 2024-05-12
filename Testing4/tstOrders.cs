@@ -80,7 +80,7 @@ namespace Testing4
         }
 
         [TestMethod]
-        public void TotalPropertyOK()
+        public void OrderTotalPropertyOK()
         {  //create an instance of the class we want to create
             clsOrders AnOrder = new clsOrders();
             //create some test data to assign to the property
@@ -110,7 +110,7 @@ namespace Testing4
             //create a Boolean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 OrderNo = 21;
+            Int32 OrderNo = 6;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //test to see if the result is true
@@ -127,11 +127,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 21;
+            Int32 OrderNo = 6;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the order number
-            if (AnOrder.OrderNo != 21)
+            if (AnOrder.OrderNo != 6)
             {
                 OK = false;
             }
@@ -149,11 +149,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 21;
+            Int32 OrderNo = 6;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the DateOfOrder property
-            if (AnOrder.DateOfOrder != Convert.ToDateTime("23/12/2022"))
+            if (AnOrder.DateOfOrder != Convert.ToDateTime("12/05/2024"))
             {
                 OK = false;
             }
@@ -171,11 +171,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 21;
+            Int32 OrderNo = 6;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the DateOfOrder property
-            if (AnOrder.ItemCount != 11)
+            if (AnOrder.ItemCount != 22)
             {
                 OK = false;
             }
@@ -193,7 +193,7 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 21;
+            Int32 OrderNo = 6;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the DateOfOrder property
@@ -215,11 +215,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 21;
+            Int32 OrderNo = 6;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the DateOfOrder property
-            if (AnOrder.SubTotal != 11.00)
+            if (AnOrder.SubTotal != 13.5)
             {
                 OK = false;
             }
@@ -228,7 +228,7 @@ namespace Testing4
         }
 
         [TestMethod]
-        public void TestTotalFound()
+        public void TestOrderTotalFound()
         {
             //create an instance of the class we want to create
             clsOrders AnOrder = new clsOrders();
@@ -237,11 +237,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 21;
+            Int32 OrderNo = 6;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the DateOfOrder property
-            if (AnOrder.Total != 11.00)
+            if (AnOrder.Total != 16)
             {
                 OK = false;
             }
@@ -259,11 +259,11 @@ namespace Testing4
             //create a Boolean variable to record if the data is OK
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 OrderNo = 21;
+            Int32 OrderNo = 6;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the DateOfOrder property
-            if (AnOrder.DeliveryNote != "test")
+            if (AnOrder.DeliveryNote != "Leave by the door")
             {
                 OK = false;
             }
