@@ -61,7 +61,7 @@ namespace Testing3
         public void SupplierTelephoneOk()
         {
             clsSupplier AnSupplier = new clsSupplier();
-            string TestData = "07748492017";
+            string TestData = "07989618402";
             AnSupplier.SupplierTelephone = TestData;
             Assert.AreEqual(AnSupplier.SupplierTelephone, TestData);
         }
@@ -89,7 +89,7 @@ namespace Testing3
         {
             clsSupplier AnSupplier = new clsSupplier(); //create an instance of the class we want to create
             Boolean Found = false; //create a Boolean variable to store the results of the validation
-            Int32 SupplierId = 21; //create some test data to use with the method
+            Int32 SupplierId = 4; //create some test data to use with the method
             Found = AnSupplier.Find(SupplierId); //invoke the method
             Assert.IsTrue(Found); //test to see if the result is true
         }
@@ -104,9 +104,9 @@ namespace Testing3
             clsSupplier AnSupplier = new clsSupplier(); //create an instance of the class we want to create
             Boolean Found = false; //create a Boolean variable to store the result of the search
             Boolean Ok = true; //create a Boolean variable to record if the data is OK (assume it is)
-            Int32 SupplierId = 21; //create some test data to use with the method
+            Int32 SupplierId = 4; //create some test data to use with the method
             Found = AnSupplier.Find(SupplierId); //invoke the method
-            if (AnSupplier.SupplierId != 21) //check the Supplier id property
+            if (AnSupplier.SupplierId != 4) //check the Supplier id property
             {
                 Ok = false;
             }
@@ -119,9 +119,9 @@ namespace Testing3
             clsSupplier AnSupplier = new clsSupplier();
             Boolean Found = false;
             Boolean Ok = true;
-            Int32 SupplierId = 21;
+            Int32 SupplierId = 4;
             Found = AnSupplier.Find(SupplierId);
-            if (AnSupplier.SupplierName != "Manga Comics ltd")
+            if (AnSupplier.SupplierName != "Geektastic Comic Suppliers")
             {
                 Ok = false;
             }
@@ -134,9 +134,9 @@ namespace Testing3
             clsSupplier AnSupplier = new clsSupplier();
             Boolean Found = false;
             Boolean Ok = true;
-            Int32 SupplierId = 21;
+            Int32 SupplierId = 4;
             Found = AnSupplier.Find(SupplierId);
-            if (AnSupplier.ContactPerson != "jeff")
+            if (AnSupplier.ContactPerson != "Emily Foster")
             {
                 Ok = false;
             }
@@ -149,9 +149,9 @@ namespace Testing3
             clsSupplier AnSupplier = new clsSupplier();
             Boolean Found = false;
             Boolean Ok = true;
-            Int32 SupplierId = 21;
+            Int32 SupplierId = 4;
             Found = AnSupplier.Find(SupplierId);
-            if (AnSupplier.SupplierEmail != "mangacomics@outlook.com")
+            if (AnSupplier.SupplierEmail != "GeektasticComics@outlook.co.uk")
             {
                 Ok = false;
             }
@@ -164,9 +164,9 @@ namespace Testing3
             clsSupplier AnSupplier = new clsSupplier();
             Boolean Found = false;
             Boolean Ok = true;
-            Int32 SupplierId = 21;
+            Int32 SupplierId = 4;
             Found = AnSupplier.Find(SupplierId);
-            if (AnSupplier.SupplierTelephone != "07924 385853")
+            if (AnSupplier.SupplierTelephone != "07989618402")
             {
                 Ok = false;
             }
@@ -179,9 +179,9 @@ namespace Testing3
             clsSupplier AnSupplier = new clsSupplier();
             Boolean Found = false;
             Boolean Ok = true;
-            Int32 SupplierId = 21;
+            Int32 SupplierId = 4;
             Found = AnSupplier.Find(SupplierId);
-            if (AnSupplier.InitialContractDate != Convert.ToDateTime("23/12/2022"))
+            if (AnSupplier.InitialContractDate != Convert.ToDateTime("08/05/2021"))
             {
                 Ok = false;
             }
@@ -194,7 +194,7 @@ namespace Testing3
             clsSupplier AnSupplier = new clsSupplier();
             Boolean Found = false;
             Boolean Ok = true;
-            Int32 SupplierId = 21;
+            Int32 SupplierId = 4;
             Found = AnSupplier.Find(SupplierId);
             if (AnSupplier.SupplierActive != true)
             {
