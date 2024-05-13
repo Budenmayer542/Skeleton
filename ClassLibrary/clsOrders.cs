@@ -148,5 +148,34 @@ namespace ClassLibrary
                 return false; 
             }
         }
+
+        public string Valid(string itemCount, string dateOfOrder, string subTotal, string total, string deliveryNote)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store the date values
+            DateTime DateTemp;
+            //if the ItemCount is blank
+            if (itemCount.Length == 0)
+            {
+                //record the error
+                Error = Error + "The number of items may not be blank : ";
+            }
+            //if the item count is greater than 6 characters
+            if (itemCount.Length>6)
+            {
+                //record the error
+                Error = Error + "The number of items must be less than 6 characters : ";
+            }
+            //copy the dateOfOrder vale to the DateTemp variable
+            DateTemp = Convert.ToDateTime(dateOfOrder);
+            //check to see if the date is less than today's date
+            if (DateTemp < DateTime.Now.Date)
+            {
+                Error = Error + "The date cannot be in the past : ";
+            }
+            //return any error messages
+            return Error;
+        }
     }
 }
