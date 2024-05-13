@@ -65,7 +65,7 @@ namespace ClassLibrary
             }
             set
             {
-                mSupplierEmail = value;
+                mSupplierTelephone = value;
             }
         }
 
@@ -94,31 +94,28 @@ namespace ClassLibrary
                 mSupplierActive = value;
             }
         }
-        
-        
-        
 
-
-
-
-
-
-
-
+        //Find Method
         public bool Find(int SupplierId)
         {
-            mSupplierId = 21; //set the private data member to the test data value
-            mSupplierName = "Manga Comics ltd";
-            mContactPerson = "jeff";
-            mSupplierEmail = "mangacomics@outlook.com";
-            mSupplierTelephone = "07924 385853";
-            mInitialContractDate = Convert.ToDateTime("23/12/2022");
-            mSupplierActive = true;
-            return true; //always return true
+            clsDataConnection DB = new clsDataConnection(); //creates an instance of the data connection 
+            DB.AddParameter("@SupplierId", SupplierId); //add the param for the supplier ID to search for
+            DB.Execute("sproc_tblSupplier_FilterBySupplierId"); //executes the stored procedure 
+            if (DB.Count == 1) 
+            {
+                mSupplierId = Convert.ToInt32(DB.DataTable.Rows[0]["SupplierId"]);
+                mSupplierName = Convert.ToString(DB.DataTable.Rows[0]["SupplierName"]);
+                mContactPerson = Convert.ToString(DB.DataTable.Rows[0]["ContactPerson"]);
+                mSupplierEmail = Convert.ToString(DB.DataTable.Rows[0]["SupplierEmail"]);
+                mSupplierTelephone = Convert.ToString(DB.DataTable.Rows[0]["SupplierTelephone"]);
+                mInitialContractDate = Convert.ToDateTime(DB.DataTable.Rows[0]["InitialContractDate"]);
+                mSupplierActive = Convert.ToBoolean(DB.DataTable.Rows[0]["SupplierActive"]);
+                return true; //return that everything worked ok 
+            }
+            else //if no record was found 
+            {
+                return false; //then return false indicating there is a problem 
+            } 
         }
-
-      
-
-
     }
 }
