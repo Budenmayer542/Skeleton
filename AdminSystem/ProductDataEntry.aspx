@@ -24,6 +24,7 @@
         <asp:Label ID="lblComicGenre" runat="server" style="z-index: 1; left: 23px; top: 175px; position: absolute" Text="Comic genre" height="19px" width="150px"></asp:Label>
         <asp:TextBox ID="txtComicGenre" runat="server" style="z-index: 1; top: 175px; position: absolute; left: 205px"></asp:TextBox>
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 25px; position: absolute; top: 341px"></asp:Label>
+        <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 206px; top: 216px; position: absolute" Text="Comic in stock" />
     </form>
 </body>
 </html>
