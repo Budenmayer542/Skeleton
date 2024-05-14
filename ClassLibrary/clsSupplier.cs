@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace ClassLibrary
 {
@@ -117,5 +118,78 @@ namespace ClassLibrary
                 return false; //then return false indicating there is a problem 
             } 
         }
+
+     
+
+        public string Valid(string supplierName, string contactPerson, string supplierEmail, string supplierTelephone, string initialContractDate)
+        {
+            String Error = ""; //stores the error
+            DateTime DateTemp; //temporary variable to store the date value
+
+            if(supplierName.Length == 0) //if supplier name is blank
+            {
+                Error += "The supplier name may not be blank : "; //record the error
+            }
+
+            if(supplierName.Length > 50) //if the supplier name is grater than 50
+            {
+                Error += "The supplier name must be less than 50 characters"; //record the error
+            }
+
+            if (contactPerson.Length == 0) //if Contact person is blank
+            {
+                Error += "The contact person may not be blank : "; //record the error
+            }
+
+            if (contactPerson.Length > 20) //if the Contact person is grater than 50
+            {
+                Error += "The contact person must be less than 20 characters"; //record the error
+            }
+
+            if (supplierEmail.Length == 0) //if supplier email is blank
+            {
+                Error += "The supplier email may not be blank : "; //record the error
+            }
+
+            if (supplierEmail.Length > 30) //if the supplier email is grater than 30
+            {
+                Error += "The supplier email must be less than 30 characters"; //record the error
+            }
+
+            if (supplierTelephone.Length == 0) //if supplier telephone is blank
+            {
+                Error += "The supplier telephone may not be blank : "; //record the error
+            }
+
+            if (supplierTelephone.Length > 15) //if the supplier telephone is grater than 15
+            {
+                Error += "The supplier telephone must be less than 15 characters"; //record the error
+            }
+
+            DateTime DateComp = DateTime.Now.Date; //instance of datetime to compare with datetemp (in the if statements)
+
+            try
+            {
+                DateTemp = Convert.ToDateTime(initialContractDate); //copied the initial contract date to the datetemp variable
+
+                if (DateTemp < DateComp) //Compare initialContractDate with date
+                {
+                    Error += "The Date Cannot be in the past : "; //Record the error
+                }
+
+                if (DateTemp > DateComp) //check to see if the date is greater than todays date
+                {
+                    Error += "The date cannot be in the future : "; //record the error
+                }
+            }
+            catch
+            {
+                Error += "The date was not a valid date : ";
+            }
+
+            return Error; //return error message 
+        }
+
+
     }
 }
