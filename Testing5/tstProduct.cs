@@ -91,7 +91,7 @@ namespace Testing5
         }
 
         [TestMethod]
-        public void FindMethodOK()
+        public void TestComicIDFound()
         {
             //Create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
@@ -99,13 +99,149 @@ namespace Testing5
             Boolean Found = false;
             Boolean OK = true;
             //Some test data
-            Int32 ComicID = 2;
+            Int32 ComicID = 1;
             Found = AProduct.Find(ComicID);
             //
-            if (AProduct.ComicID != 1) {
+            if (AProduct.ComicID != 1)
+            {
                 OK = false;
             }
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void TestComicNameFound()
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ComicID = 1;
+            //invoke the method
+            Found = AProduct.Find(ComicID);
+            //check the post code property
+            if (AProduct.ComicName != "Mirai Nikki")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestComicInitialReleaseDateFound()
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ComicID = 1;
+            //invoke the method
+            Found = AProduct.Find(ComicID);
+            //check the post code property
+            if (AProduct.ComicInitialReleaseDate != Convert.ToDateTime("23/12/2022"))
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestComicArtistFound()
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ComicID = 1;
+            //invoke the method
+            Found = AProduct.Find(ComicID);
+            //check the post code property
+            if (AProduct.ComicArtist != "AAA")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestComicPriceFound()
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ComicID = 1;
+            //invoke the method
+            Found = AProduct.Find(ComicID);
+            //check the post code property
+            if (AProduct.ComicPrice != 7.99)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestComicGenreFound()
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ComicID = 1;
+            //invoke the method
+            Found = AProduct.Find(ComicID);
+            //check the post code property
+            if (AProduct.ComicGenre != "Action")
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestIsComicInStockFound()
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //create a boolean variable to store the result of the search
+            Boolean Found = false;
+            //create a boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to use with the method
+            Int32 ComicID = 1;
+            //invoke the method
+            Found = AProduct.Find(ComicID);
+            //check the post code property
+            if (AProduct.IsComicInStock != true)
+            {
+                OK = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+
+
     }
 }
