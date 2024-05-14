@@ -89,5 +89,23 @@ namespace Testing5
             AProduct.IsComicInStock =  TestData;
             Assert.AreEqual(AProduct.IsComicInStock, TestData);
         }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //Create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //Boolean storing the validation result
+            Boolean Found = false;
+            Boolean OK = true;
+            //Some test data
+            Int32 ComicID = 2;
+            Found = AProduct.Find(ComicID);
+            //
+            if (AProduct.ComicID != 1) {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
     }
 }
