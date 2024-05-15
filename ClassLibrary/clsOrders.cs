@@ -162,17 +162,35 @@ namespace ClassLibrary
                 Error = Error + "The number of items may not be blank : ";
             }
             //if the item count is greater than 6 characters
-            if (itemCount.Length>6)
+            if (itemCount.Length>4)
             {
                 //record the error
                 Error = Error + "The number of items must be less than 6 characters : ";
             }
             //copy the dateOfOrder vale to the DateTemp variable
-            DateTemp = Convert.ToDateTime(dateOfOrder);
-            //check to see if the date is less than today's date
-            if (DateTemp < DateTime.Now.Date)
+            DateTime DateComp = DateTime.Now.Date;
+
+            try
             {
-                Error = Error + "The date cannot be in the past : ";
+                //copy the DateOfOrder value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dateOfOrder);
+
+                if (DateTemp < DateComp) //compare dateOfOrder with Date
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greate than todays date
+                if (DateTemp > DateComp)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
             }
             //return any error messages
             return Error;
