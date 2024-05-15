@@ -133,7 +133,7 @@ namespace ClassLibrary
 
             if(supplierName.Length > 50) //if the supplier name is grater than 50
             {
-                Error += "The supplier name must be less than 50 characters"; //record the error
+                Error += "The supplier name must be less than 50 characters : "; //record the error
             }
 
             if (contactPerson.Length == 0) //if Contact person is blank
@@ -143,7 +143,7 @@ namespace ClassLibrary
 
             if (contactPerson.Length > 20) //if the Contact person is grater than 50
             {
-                Error += "The contact person must be less than 20 characters"; //record the error
+                Error += "The contact person must be less than 20 characters : "; //record the error
             }
 
             if (supplierEmail.Length == 0) //if supplier email is blank
@@ -153,7 +153,7 @@ namespace ClassLibrary
 
             if (supplierEmail.Length > 30) //if the supplier email is grater than 30
             {
-                Error += "The supplier email must be less than 30 characters"; //record the error
+                Error += "The supplier email must be less than 30 characters : "; //record the error
             }
 
             if (supplierTelephone.Length == 0) //if supplier telephone is blank
@@ -163,7 +163,7 @@ namespace ClassLibrary
 
             if (supplierTelephone.Length > 15) //if the supplier telephone is grater than 15
             {
-                Error += "The supplier telephone must be less than 15 characters"; //record the error
+                Error += "The supplier telephone must be less than 15 characters : "; //record the error
             }
 
             DateTime DateComp = DateTime.Now.Date; //instance of datetime to compare with datetemp (in the if statements)
@@ -171,11 +171,6 @@ namespace ClassLibrary
             try
             {
                 DateTemp = Convert.ToDateTime(initialContractDate); //copied the initial contract date to the datetemp variable
-
-                if (DateTemp < DateComp) //Compare initialContractDate with date
-                {
-                    Error += "The Date Cannot be in the past : "; //Record the error
-                }
 
                 if (DateTemp > DateComp) //check to see if the date is greater than todays date
                 {

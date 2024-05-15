@@ -306,7 +306,7 @@ namespace Testing3
             TestDate = TestDate.AddYears(-100); // changes the date to whenever it was 100 years ago
             string InitialContractDate = TestDate.ToString(); //convert the date variable to a string variable
             Error = AnSupplier.Valid(supplierName, contactPerson, supplierEmail, supplierTelephone, InitialContractDate); //invoke the method 
-            Assert.AreNotEqual(Error, ""); //test to see if the result is correct 
+            Assert.AreEqual(Error, ""); //test to see if the result is correct 
         }
 
         [TestMethod]
@@ -319,7 +319,7 @@ namespace Testing3
             TestDate = TestDate.AddDays(-1); // changes the date to whenever it was 1 day ago
             string InitialContractDate = TestDate.ToString(); //convert the date variable to a string variable
             Error = AnSupplier.Valid(supplierName, contactPerson, supplierEmail, supplierTelephone, InitialContractDate); //invoke the method 
-            Assert.AreNotEqual(Error, ""); //test to see if the result is correct 
+            Assert.AreEqual(Error, ""); //test to see if the result is correct 
         }
 
         [TestMethod]
