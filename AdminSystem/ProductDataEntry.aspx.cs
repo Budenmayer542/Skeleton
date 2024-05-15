@@ -27,4 +27,22 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //Navigate to the view page
         Response.Redirect("ProductViewer.aspx");
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        clsProduct AProduct = new clsProduct();
+        Int32 ComicID;
+        Boolean Found = false;
+        ComicID = Convert.ToInt32(txtComicID.Text);
+        Found = AProduct.Find(ComicID);
+        if (Found == true)
+        {
+            txtComicName.Text = AProduct.ComicName;
+            txtComicInitialReleaseDate.Text = AProduct.ComicInitialReleaseDate.ToString();
+            txtComicArtist.Text = AProduct.ComicArtist;
+            txtComicPrice.Text = AProduct.ComicPrice.ToString();
+            txtComicGenre.Text = AProduct.ComicGenre;
+            chkActive.Checked = AProduct.IsComicInStock;
+        }
+    }
 }

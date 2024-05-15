@@ -121,16 +121,27 @@ namespace ClassLibrary
 
         public bool Find(int ComicID)
         {
-            //Always returns true
-            mComicID = 1;
-            mComicName = "Mirai Nikki";
-            mComicInitialReleaseDate = Convert.ToDateTime("23/12/2022");
-            mComicArtist = "AAA";
-            mComicPrice = 7.99;
-            mComicGenre = "Action";
-            mIsComicInStock = true;
-            //Always returns true
-            return true;
+            //Create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //Add the ComicID parameter
+            DB.AddParameter("@ComicID", ComicID);
+            //Execute the stored procedure
+            DB.Execute("sproc_tblComic_FilterByComicID");
+            if (DB.Count == 1)
+            {
+                mComicID = Convert.ToInt32(DB.DataTable.Rows[0]["ComicID"]);
+                mComicName = Convert.ToString(DB.DataTable.Rows[0]["ComicName"]);
+                mComicInitialReleaseDate = Convert.ToDateTime(DB.DataTable.Rows[0]["ComicInitialReleaseDate"]);
+                mComicArtist = Convert.ToString(DB.DataTable.Rows[0]["ComicArtist"]);
+                mComicPrice = Convert.ToDouble(DB.DataTable.Rows[0]["ComicPrice"]);
+                mComicGenre = Convert.ToString(DB.DataTable.Rows[0]["ComicGenre"]);
+                mIsComicInStock = Convert.ToBoolean(DB.DataTable.Rows[0]["IsComicInStock"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

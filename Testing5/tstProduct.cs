@@ -123,7 +123,7 @@ namespace Testing5
             //invoke the method
             Found = AProduct.Find(ComicID);
             //check the post code property
-            if (AProduct.ComicName != "Mirai Nikki")
+            if (AProduct.ComicName != "Akame Ga Kill!")
             {
                 OK = false;
             }
@@ -145,7 +145,7 @@ namespace Testing5
             //invoke the method
             Found = AProduct.Find(ComicID);
             //check the post code property
-            if (AProduct.ComicInitialReleaseDate != Convert.ToDateTime("23/12/2022"))
+            if (AProduct.ComicInitialReleaseDate != Convert.ToDateTime("20/04/2010"))
             {
                 OK = false;
             }
@@ -167,7 +167,7 @@ namespace Testing5
             //invoke the method
             Found = AProduct.Find(ComicID);
             //check the post code property
-            if (AProduct.ComicArtist != "AAA")
+            if (AProduct.ComicArtist != "Takahiro")
             {
                 OK = false;
             }
@@ -189,7 +189,7 @@ namespace Testing5
             //invoke the method
             Found = AProduct.Find(ComicID);
             //check the post code property
-            if (AProduct.ComicPrice != 7.99)
+            if (AProduct.ComicPrice != 11.99)
             {
                 OK = false;
             }
