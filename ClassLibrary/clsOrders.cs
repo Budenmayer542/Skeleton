@@ -192,6 +192,42 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The date was not a valid date : ";
             }
+            //is the sub total blank
+            if (subTotal.Length == 0)
+            {
+                //record the error
+                Error = Error + "The sub total may not be blank : ";
+            }
+            //if the sub total is too long
+            if (subTotal.Length > 6)
+            {
+                //Record the error
+                Error = Error + "The sub total must be less than 9 characters";
+            }
+            //is the total blank
+            if (total.Length == 0)
+            {
+                //record the error
+                Error = Error + "The total may not be blank : ";
+            }
+            //if the total is too long
+            if (total.Length > 6)
+            {
+                //Record the error
+                Error = Error + "The total must be less than 9 characters";
+            }
+            //is the delivery note blank
+            if (deliveryNote.Length == 0)
+            {
+                //record the error
+                Error = Error + "The delivery note may not be blank : ";
+            }
+            //if the delivery note is too long
+            if (deliveryNote.Length > 500)
+            {
+                //record the error
+                Error = Error + "The delivery note must be less than 500 characters";
+            }
             //return any error messages
             return Error;
         }
