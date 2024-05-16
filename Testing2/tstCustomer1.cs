@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,42 +8,31 @@ using System.Threading.Tasks;
 
 namespace Testing2
 {
-    public class TstCustomer
+    [TestClass]
+    public class tstCustomer1
     {
+       
+        [TestMethod]
         public void Instanceok()
-        {
-            //create an instance of the class we want to create
+        {//create an instance of the class we want to create
             clsCustomer AnCustomer = new clsCustomer();
-            //test to see that it exits
+            //test to see that it's exists
             Assert.IsNotNull(AnCustomer);
         }
         public void Activepropertyok()
-        {
-            //create an instance of the class we want to create 
+        {//create an instance of tne classwe want to create
             clsCustomer AnCustomer = new clsCustomer();
-            //create some test data to assign to the property
+            //create some test data to aasign to the property
             Boolean TestData = true;
             //assign the data to the property
             AnCustomer.Active = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnCustomer.Active, TestData);
         }
-        public void CustomerIdpropertyok()
-        { //create an instance of the class we want to create
-            clsCustomer AnCustomer = new clsCustomer();
-            //create some test data to assign to the property
-            Int32 TestData = 1;
-            //assign the data to the  property
-            AnCustomer.CustomerId = TestData;
-            //test to see that the two vlaues are the same
-            Assert.AreEqual(AnCustomer.CustomerId, TestData);
-        }
-
         public void SignUppropertyok()
-        {
-            //creat an instance of the class we want to create
+        {//create an instance of tne classwe want to create
             clsCustomer AnCustomer = new clsCustomer();
-            //create some test data to assign to the property
+            //create some test data to aasign to the property
             DateTime TestData = DateTime.Now;
             //assign the data to the property
             AnCustomer.SignUp = TestData;
@@ -50,36 +40,44 @@ namespace Testing2
             Assert.AreEqual(AnCustomer.SignUp, TestData);
         }
         public void FullNamepropertyok()
-        { //create an instance of the class we want to create
+        {//create an instance of tne classwe want to create
             clsCustomer AnCustomer = new clsCustomer();
-            //create some test data to assign to the property
+            //create some test data to aasign to the property
             String TestData = "Smily";
             //assign the data to the property
             AnCustomer.FullName = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnCustomer.FullName, TestData);
         }
-        public void EmailAddresspropertyok()
-        { //create an instance of the class we want to create
+        public void PhoneNumberpropertyok()
+        {//create an instance of tne classwe want to create
             clsCustomer AnCustomer = new clsCustomer();
-            //create some test data to assign to the property
-#pragma warning disable CS0219 // Variable is assigned but its value is never used
+            //create some test data to aasign to the property
+            Int64 TestData = 07436849998;
+            //assign the data to the property
+            AnCustomer.PhoneNumber = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnCustomer.PhoneNumber, TestData);
+        }
+        public void EmailAddresspropertyok()
+        {//create an instance of tne classwe want to create
+            clsCustomer AnCustomer = new clsCustomer();
+            //create some test data to aasign to the property
             String TestData = "smily74@gmail.com";
-#pragma warning restore CS0219 // Variable is assigned but its value is never used
-            //aasign the data to the property 
+            //assign the data to the property
             AnCustomer.EmailAddress = TestData;
             //test to see that the two values are the same
             Assert.AreEqual(AnCustomer.EmailAddress, TestData);
         }
-        public void PhoneNumberproperty()
-        { //create an instance of the class we want to create
+        public void CustomerIdpropertyok()
+        {//create an instance of tne classwe want to create
             clsCustomer AnCustomer = new clsCustomer();
-            //create some test data to assign to the property
-            Int32 TestData = 0743684998;
-            //assign the dat to the property
-            AnCustomer.PhoneNumber = TestData;
+            //create some test data to aasign to the property
+            Int32 TestData = 1;
+            //assign the data to the property
+            AnCustomer.CustomerId = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnCustomer.PhoneNumber, TestData);
+            Assert.AreEqual(AnCustomer.CustomerId, TestData);
         }
     }
 }
