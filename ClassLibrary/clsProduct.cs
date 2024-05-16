@@ -144,5 +144,15 @@ namespace ClassLibrary
             }
         }
 
+        public string Valid(string comicName, string comicArtist, string comicInitialReleaseDate, string comicGenre)
+        {
+            String Error = "";
+            if(comicName.Length == 0)
+            {
+                Error = Error + "The comic name may not be blank: ";
+            }
+
+            return Error;
+        }
     }
 }
