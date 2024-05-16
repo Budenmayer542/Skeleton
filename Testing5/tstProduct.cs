@@ -7,6 +7,11 @@ namespace Testing5
     [TestClass]
     public class tstProduct
     {
+        string ComicName = "Comic";
+        string ComicArtist = "Person";
+        string ComicInitialReleaseDate = DateTime.Now.ToShortDateString();
+        string ComicGenre = "Action";
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -241,7 +246,26 @@ namespace Testing5
             Assert.IsTrue(OK);
         }
 
+ 
 
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsProduct AProduct = new clsProduct();
+            String Error = "";
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicNameMinLessOne()
+        {
+            clsProduct AProduct = new clsProduct();
+            String Error = "";
+            string ComicName = "";
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Assert.AreNotEqual(Error, "");
+        }
 
     }
 }
