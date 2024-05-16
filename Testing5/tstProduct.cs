@@ -1,6 +1,7 @@
 ﻿using ClassLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.IO;
 
 namespace Testing5
 {
@@ -259,6 +260,7 @@ namespace Testing5
 
         [TestMethod]
         public void ComicNameMinLessOne()
+            //Test method for Min -1
         {
             clsProduct AProduct = new clsProduct();
             String Error = "";
@@ -267,5 +269,384 @@ namespace Testing5
             Assert.AreNotEqual(Error, "");
         }
 
+        [TestMethod]
+        public void ComicNameMin()
+            //Test method for Min
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicName = "a"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicNameMinPlusOne()
+            // Test method for Min + 1
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicName = "aa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicNameMaxLessOne()
+            // Test method for Max - 1
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicNameMax()
+            // Test method for Max
+
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicNameMid()
+            // Test method for Mid
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicNameMaxPlusOne()
+        // Test method for Max + 1
+
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicNameExMax()
+        // Test method for Max + 1
+
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicName = "";
+            ComicName = ComicName.PadRight(500, 'a');
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        ////
+        ///
+        ///
+
+
+
+        /////
+        ///
+        [TestMethod]
+        public void ComicArtistMinLessOne()
+        //Test method for Min -1
+        {
+            clsProduct AProduct = new clsProduct();
+            String Error = "";
+            string ComicArtist = "";
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicArtistMin()
+        //Test method for Min
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicArtist = "a"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicArtistMinPlusOne()
+        // Test method for Min + 1
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicArtist = "aa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicArtistMaxLessOne()
+        // Test method for Max - 1
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicArtistMax()
+        // Test method for Max
+
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicArtistMid()
+        // Test method for Mid
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicArtistMaxPlusOne()
+        // Test method for Max + 1
+
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicArtistExMax()
+        // Test method for Max + 1
+
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicArtist = "";
+            ComicArtist = ComicArtist.PadRight(500, 'a');
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+
+        [TestMethod]
+        public void ComicGenreMinLessOne()
+        //Test method for Min -1
+        {
+            clsProduct AProduct = new clsProduct();
+            String Error = "";
+            string ComicGenre = "";
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicGenreMin()
+        //Test method for Min
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicGenre = "a"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicGenretMinPlusOne()
+        // Test method for Min + 1
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicGenre = "aa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicGenreMaxLessOne()
+        // Test method for Max - 1
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicGenretMax()
+        // Test method for Max
+
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicGenreMid()
+        // Test method for Mid
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicGenreMaxPlusOne()
+        // Test method for Max + 1
+
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicGenreExMax()
+        // Test method for Max + 1
+
+        {
+            //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
+            String Error = "";
+            //create some test data to pass to the method
+            string ComicGenre = "";
+            ComicGenre = ComicGenre.PadRight(500, 'a');
+            //invoke the method
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
     }
 }

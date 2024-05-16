@@ -152,6 +152,31 @@ namespace ClassLibrary
                 Error = Error + "The comic name may not be blank: ";
             }
 
+            if(comicName.Length > 50)
+            {
+                Error = Error + "The comic name must be 50 characters or less";
+            }
+
+            if (comicArtist.Length == 0)
+            {
+                Error = Error + "The comic artist may not be blank: ";
+            }
+
+            if (comicArtist.Length > 50)
+            {
+                Error = Error + "The comic artist must be 50 characters or less";
+            }
+
+            if (comicGenre.Length == 0)
+            {
+                Error = Error + "The comic genre may not be blank: ";
+            }
+
+            if (comicGenre.Length > 50)
+            {
+                Error = Error + "The comic genre must be 50 characters or less";
+            }
+
             return Error;
         }
     }
