@@ -118,19 +118,118 @@ namespace ClassLibrary
             }
         }
 
-        public bool Find(int orderNo)
+        //find method
+        public bool Find(int OrderNo)
         {
-            //set the private data members to the test data value
-            mOrderNo = 21;
-            mDateOfOrder = Convert.ToDateTime("23/12/2022");
-            mItemCount = 11;
-            mDispatched = true;
-            mSubTotal = 11.00;
-            mTotal = 12.00;
-            mDeliveryNote = "test";
-                
-            //always return true
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the paramete for the order number to search for
+            DB.AddParameter("@OrderNo", OrderNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrders_FilterByOrderNo");
+            //if one record is found
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
+                mDateOfOrder = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfOrder"]);
+                mItemCount = Convert.ToInt32(DB.DataTable.Rows[0]["ItemCount"]);
+                mDispatched = Convert.ToBoolean(DB.DataTable.Rows[0]["Dispatched"]);
+                mSubTotal = Convert.ToDouble(DB.DataTable.Rows[0]["SubTotal"]);
+                mTotal = Convert.ToDouble(DB.DataTable.Rows[0]["OrderTotal"]);
+                mDeliveryNote = Convert.ToString(DB.DataTable.Rows[0]["DeliveryNote"]);
+                //return that everything wored OK
+                return true;
+            }
+            //if no record was found
+            else 
+            { 
+                //return false indicating there is a problem
+                return false; 
+            }
+        }
+
+        public string Valid(string itemCount, string dateOfOrder, string subTotal, string total, string deliveryNote)
+        {
+            //create a string variable to store the error
+            String Error = "";
+            //create a temporary variable to store the date values
+            DateTime DateTemp;
+            //if the ItemCount is blank
+            if (itemCount.Length == 0)
+            {
+                //record the error
+                Error = Error + "The number of items may not be blank : ";
+            }
+            //if the item count is greater than 6 characters
+            if (itemCount.Length>4)
+            {
+                //record the error
+                Error = Error + "The number of items must be less than 6 characters : ";
+            }
+            //copy the dateOfOrder vale to the DateTemp variable
+            DateTime DateComp = DateTime.Now.Date;
+
+            try
+            {
+                //copy the DateOfOrder value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(dateOfOrder);
+
+                if (DateTemp < DateComp) //compare dateOfOrder with Date
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the past : ";
+                }
+                //check to see if the date is greate than todays date
+                if (DateTemp > DateComp)
+                {
+                    //record the error
+                    Error = Error + "The date cannot be in the future : ";
+                }
+            }
+            catch
+            {
+                //record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+            //is the sub total blank
+            if (subTotal.Length == 0)
+            {
+                //record the error
+                Error = Error + "The sub total may not be blank : ";
+            }
+            //if the sub total is too long
+            if (subTotal.Length > 6)
+            {
+                //Record the error
+                Error = Error + "The sub total must be less than 9 characters";
+            }
+            //is the total blank
+            if (total.Length == 0)
+            {
+                //record the error
+                Error = Error + "The total may not be blank : ";
+            }
+            //if the total is too long
+            if (total.Length > 6)
+            {
+                //Record the error
+                Error = Error + "The total must be less than 9 characters";
+            }
+            //is the delivery note blank
+            if (deliveryNote.Length == 0)
+            {
+                //record the error
+                Error = Error + "The delivery note may not be blank : ";
+            }
+            //if the delivery note is too long
+            if (deliveryNote.Length > 500)
+            {
+                //record the error
+                Error = Error + "The delivery note must be less than 500 characters";
+            }
+            //return any error messages
+            return Error;
         }
     }
 }
