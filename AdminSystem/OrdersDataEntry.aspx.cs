@@ -18,28 +18,40 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsOrders
         clsOrders AnOrder = new clsOrders();
         //capture the data
-        AnOrder.OrderNo = Convert.ToInt32(txtOrderNo.Text);
-        AnOrder.ItemCount = Convert.ToInt32(txtItemCount.Text);
-        AnOrder.DateOfOrder = Convert.ToDateTime(DateTime.Now); 
-        AnOrder.Dispatched = chkDispatched.Checked; 
-        AnOrder.SubTotal = Convert.ToDouble(txtSubTotal.Text);
-        AnOrder.Total = Convert.ToDouble(txtTotal.Text);
-        AnOrder.DeliveryNote = txtDeliveryNote.Text;    
-
-
-
-        //store the Order in the session object
-        Session["AnOrder"] = AnOrder;
-        //navigate to the view page
-        Response.Redirect("OrdersViewer.aspx");
+        
+        string OrderNo = txtOrderNo.Text;
+        string ItemCount = txtItemCount.Text;
+        string DateOfOrder = txtDateOfOrder.Text; 
+        string Dispatched = chkDispatched.Text; 
+        string SubTotal = txtSubTotal.Text;
+        string Total = txtTotal.Text;
+        string DeliveryNote = txtDeliveryNote.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = AnOrder.Valid(ItemCount, DateOfOrder, SubTotal, Total, DeliveryNote);
+        if (Error == "")
+        {
+            //capture data
+            AnOrder.OrderNo = Convert.ToInt32(OrderNo);
+            AnOrder.ItemCount = Convert.ToInt32(ItemCount);
+            AnOrder.DateOfOrder = Convert.ToDateTime(DateOfOrder);
+            AnOrder.SubTotal = Convert.ToDouble(SubTotal);
+            AnOrder.SubTotal = Convert.ToDouble(Total);
+            AnOrder.DeliveryNote = DeliveryNote;
+            //store the Order in the session object
+            Session["AnOrder"] = AnOrder;
+            //navigate to the view page
+            Response.Redirect("OrdersViewer.aspx");
+        }
+        else
+        {
+            //diplay the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void Button1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void Button1_Click1(object sender, EventArgs e)
     {
 
     }
