@@ -18,7 +18,7 @@
         <asp:TextBox ID="txtComicArtist" runat="server" style="z-index: 1; top: 115px; position: absolute; left: 205px"></asp:TextBox>
         <asp:Label ID="lblComicPrice" runat="server" style="z-index: 1; left: 23px; top: 145px; position: absolute" Text="Comic price" height="19px" width="150px"></asp:Label>
         <asp:TextBox ID="txtComicPrice" runat="server" style="z-index: 1; top: 145px; position: absolute; left: 205px"></asp:TextBox> 
-        <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 195px; top: 269px; position: absolute" Text="OK" />
+        <asp:Button ID="btnOK" runat="server" onClick="btnOK_Click" style="z-index: 1; left: 195px; top: 269px; position: absolute" Text="OK" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 271px; top: 269px; position: absolute" Text="Cancel" />
         <asp:Label ID="lblComicGenre" runat="server" style="z-index: 1; left: 23px; top: 175px; position: absolute" Text="Comic genre" height="19px" width="150px"></asp:Label>
         <asp:TextBox ID="txtComicGenre" runat="server" style="z-index: 1; top: 175px; position: absolute; left: 205px"></asp:TextBox>
