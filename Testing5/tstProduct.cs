@@ -661,5 +661,66 @@ namespace Testing5
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
             Assert.AreEqual(Error, "");
         }
+
+        [TestMethod]
+        public void ComicInitialReleaseDateMinLessOne()
+        {
+            clsProduct AProduct = new clsProduct();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(-1);
+            string DateAdded = TestDate.ToString();
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicInitialReleaseDateMin()
+        {
+            clsProduct AProduct = new clsProduct();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            string DateAdded = TestDate.ToString();
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicInitialReleaseDateMinPlusOne()
+        {
+            clsProduct AProduct = new clsProduct();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddDays(1);
+            string DateAdded = TestDate.ToString();
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicInitialReleaseDateExtrememMax()
+        {
+            clsProduct AProduct = new clsProduct();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(100);
+            string DateAdded = TestDate.ToString();
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicInitialReleaseDateInvalid()
+        {
+            clsProduct AProduct = new clsProduct();
+            String Error = "";
+            string ComicInitialReleaseDate = "Not a date :)";
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Assert.AreNotEqual(Error, "");
+        }
     }
 }
