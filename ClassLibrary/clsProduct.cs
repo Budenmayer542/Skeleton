@@ -177,11 +177,22 @@ namespace ClassLibrary
             {
                 Error = Error + "The comic genre must be 50 characters or less";
             }
-
-            DateTemp = Convert.ToDateTime(comicInitialReleaseDate);
-            if (DateTemp > DateTime.Now.Date)
-                Error = Error + "The date cannor be in the future : ";
+            DateTime DateComp = DateTime.Now;
+            try
+            {
+                DateTemp = Convert.ToDateTime(comicInitialReleaseDate);
+                if (DateTemp > DateComp)
+                { 
+                    Error = Error + "The date cannor be in the future : ";
+                }
+                
+            }
+            catch
+            {
+                Error = Error + "The date was not a valid date or date format";
+            }
             return Error;
+
         }
     }
 }
