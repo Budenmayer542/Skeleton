@@ -16,16 +16,33 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsProduct AProduct = new clsProduct();
-        AProduct.ComicID = Convert.ToInt32(txtComicID.Text);
-        AProduct.ComicName = txtComicName.Text;
-        AProduct.ComicInitialReleaseDate = Convert.ToDateTime(txtComicInitialReleaseDate.Text);
-        AProduct.ComicArtist = txtComicArtist.Text;
-        AProduct.ComicPrice = Convert.ToDouble(txtComicPrice.Text);
-        AProduct.ComicGenre = txtComicGenre.Text;
-        AProduct.IsComicInStock = chkActive.Checked;
-        Session["AProduct"] = AProduct;
+        string ComicID = txtComicID.Text;
+        string ComicName = txtComicName.Text;
+        string ComicInitialReleaseDate = txtComicInitialReleaseDate.Text;
+        string ComicArtist = txtComicArtist.Text;
+        string ComicPrice = txtComicPrice.Text;
+        string ComicGenre = txtComicGenre.Text;
+        string IsComicInStock = chkActive.Text;
+        string Error = "";
+        Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+        if (Error == "")
+        {
+            AProduct.ComicName = txtComicName.Text;
+            AProduct.ComicInitialReleaseDate = Convert.ToDateTime(txtComicInitialReleaseDate.Text);
+            AProduct.ComicArtist = txtComicArtist.Text;
+            AProduct.ComicGenre = txtComicGenre.Text;
+            Session["AProduct"] = AProduct;
+            //Navigate to the view page
+            Response.Redirect("ProductViewer.aspx");
+        }
+        else
+        {
+            lblError.Text = Error;
+        }
+
+
         //Navigate to the view page
-        Response.Redirect("ProductViewer.aspx");
+        //Response.Redirect("ProductViewer.aspx");
     }
 
     protected void Button1_Click(object sender, EventArgs e)
