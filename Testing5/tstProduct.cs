@@ -648,5 +648,18 @@ namespace Testing5
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
+
+        [TestMethod]
+        public void ComicInitialReleaseDateExtremeMin()
+        {
+            clsProduct AProduct = new clsProduct();
+            String Error = "";
+            DateTime TestDate;
+            TestDate = DateTime.Now.Date;
+            TestDate = TestDate.AddYears(-100);
+            string DateAdded = TestDate.ToString();
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Assert.AreEqual(Error, "");
+        }
     }
 }

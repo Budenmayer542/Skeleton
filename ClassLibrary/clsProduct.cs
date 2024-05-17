@@ -147,6 +147,7 @@ namespace ClassLibrary
         public string Valid(string comicName, string comicArtist, string comicInitialReleaseDate, string comicGenre)
         {
             String Error = "";
+            DateTime DateTemp;
             if(comicName.Length == 0)
             {
                 Error = Error + "The comic name may not be blank: ";
@@ -177,6 +178,9 @@ namespace ClassLibrary
                 Error = Error + "The comic genre must be 50 characters or less";
             }
 
+            DateTemp = Convert.ToDateTime(comicInitialReleaseDate);
+            if (DateTemp > DateTime.Now.Date)
+                Error = Error + "The date cannor be in the future : ";
             return Error;
         }
     }
