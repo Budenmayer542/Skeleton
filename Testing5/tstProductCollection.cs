@@ -120,6 +120,21 @@ namespace Testing5
             Assert.AreEqual(AllProducts.Count, 2);
         }
 
-
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsProductCollection AllProducts = new clsProductCollection();
+            clsProduct TestItem = new clsProduct();
+            TestItem.ComicID = 1;
+            TestItem.ComicName = "A Comic";
+            TestItem.ComicInitialReleaseDate = DateTime.Now;
+            TestItem.ComicArtist = "Artista";
+            TestItem.ComicPrice = 7.99;
+            TestItem.ComicGenre = "Action";
+            TestItem.IsComicInStock = true;
+            AllProducts.ThisProduct = TestItem;
+            AllProduct.ThisProduct.Find(ComicID);
+            Assert.AreEqual(AllProducts.ThisProduct, TestItem);
+        }
     }
 }
