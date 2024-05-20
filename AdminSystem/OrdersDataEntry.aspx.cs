@@ -33,16 +33,20 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if (Error == "")
         {
             //capture data
-            AnOrder.OrderNo = Convert.ToInt32(OrderNo);
             AnOrder.ItemCount = Convert.ToInt32(ItemCount);
             AnOrder.DateOfOrder = Convert.ToDateTime(DateOfOrder);
             AnOrder.SubTotal = Convert.ToDouble(SubTotal);
-            AnOrder.SubTotal = Convert.ToDouble(Total);
+            AnOrder.Total = Convert.ToDouble(Total);
             AnOrder.DeliveryNote = DeliveryNote;
-            //store the Order in the session object
-            Session["AnOrder"] = AnOrder;
-            //navigate to the view page
-            Response.Redirect("OrdersViewer.aspx");
+            AnOrder.Dispatched = chkDispatched.Checked;
+            //create a new instance of the orders collection
+            clsOrdersCollection OrdersList = new clsOrdersCollection();
+            //set the ThisOrders property
+            OrdersList.ThisOrders = AnOrder;
+            //add the new record
+            OrdersList.Add();
+            //redirect back to the list page
+            Response.Redirect("OrdersList.aspx");
         }
         else
         {
