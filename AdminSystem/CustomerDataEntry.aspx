@@ -38,7 +38,7 @@
             <asp:CheckBox ID="chkActive" runat="server" Text="Active" />
         </p>
         <p>
-            <asp:Button ID="btnOk" runat="server" Text="Ok" />
+            <asp:Button ID="btnOk" runat="server" Text="Ok" OnClick="btnOk_Click1" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="txtCancel" runat="server" Text="Cancel" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
