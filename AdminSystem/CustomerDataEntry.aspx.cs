@@ -38,6 +38,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AnCustomer.EmailAddress = txtEmailAddress.Text;
         AnCustomer.SignUp = Convert.ToDateTime(DateTime.Now);
         AnCustomer.Active = chkActive.Checked;
+        AnCustomer.PhoneNumber = long.Parse(txtPhoneNumber.Text);
         //st0re the address in the session object
         Session["AnCustomer"] = AnCustomer;
         //navigate to the view page
