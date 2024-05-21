@@ -9,6 +9,8 @@ namespace ClassLibrary
         // Private data member for the list
         public List<clsProduct> mProductList = new List<clsProduct>();
 
+        clsProduct mThisProduct = new clsProduct();
+
 
         public List<clsProduct>  ProductList {
             get
@@ -31,7 +33,18 @@ namespace ClassLibrary
                 // Later
             }
         }
-        public clsProduct ThisProduct { get; set; }
+        public clsProduct ThisProduct 
+        { 
+            get
+            {
+                return mThisProduct;
+            }
+
+            set
+            {
+                mThisProduct = value;
+            }
+        }
 
         public clsProductCollection()
         {
@@ -61,6 +74,19 @@ namespace ClassLibrary
 
         }
 
-        
+
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+
+            DB.AddParameter("@ComicName",mThisProduct.ComicName);
+            DB.AddParameter("@ComicInitialReleaseDate",mThisProduct.ComicInitialReleaseDate);
+            DB.AddParameter("@ComicArtist",mThisProduct.ComicArtist);
+            DB.AddParameter("@ComicPrice",mThisProduct.ComicPrice);
+            DB.AddParameter("@ComicGenre",mThisProduct.ComicGenre);
+            DB.AddParameter("@IsComicInStock",mThisProduct.IsComicInStock);
+
+            return DB.Execute("sproc_tblComic_Insert");
+        }
     }
 }

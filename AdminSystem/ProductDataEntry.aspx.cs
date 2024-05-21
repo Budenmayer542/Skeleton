@@ -24,16 +24,20 @@ public partial class _1_DataEntry : System.Web.UI.Page
         string ComicGenre = txtComicGenre.Text;
         string IsComicInStock = chkActive.Text;
         string Error = "";
-        Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+        Error = AProduct.Valid(ComicName, ComicArtist, ComicPrice, ComicInitialReleaseDate, ComicGenre);
         if (Error == "")
         {
-            AProduct.ComicName = txtComicName.Text;
-            AProduct.ComicInitialReleaseDate = Convert.ToDateTime(txtComicInitialReleaseDate.Text);
-            AProduct.ComicArtist = txtComicArtist.Text;
-            AProduct.ComicGenre = txtComicGenre.Text;
-            Session["AProduct"] = AProduct;
+            AProduct.ComicName = ComicName;
+            AProduct.ComicInitialReleaseDate = Convert.ToDateTime(ComicInitialReleaseDate);
+            AProduct.ComicArtist = ComicArtist;
+            AProduct.ComicGenre = ComicGenre;
+            AProduct.ComicPrice = (double)Convert.ToDecimal(ComicPrice);
+            AProduct.IsComicInStock = chkActive.Checked;
             //Navigate to the view page
-            Response.Redirect("ProductViewer.aspx");
+            clsProductCollection ProductList = new clsProductCollection();
+            ProductList.ThisProduct = AProduct;
+            ProductList.Add();
+            Response.Redirect("ProductList.aspx");
         }
         else
         {
