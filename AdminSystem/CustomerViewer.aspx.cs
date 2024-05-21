@@ -20,6 +20,6 @@ public partial class _1Viewer : System.Web.UI.Page
         Response.Write(AnCustomer.EmailAddress);
         Response.Write(AnCustomer.SignUp);
         Response.Write(AnCustomer.Active);
-
+        Response.Write(AnCustomer.PhoneNumber);
     }
 }
