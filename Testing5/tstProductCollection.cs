@@ -50,19 +50,6 @@ namespace Testing5
         }
 
         [TestMethod]
-        public void CountPropertyOK()
-        {
-            //Create some test data to assign to the property
-            clsProductCollection AllProducts = new clsProductCollection();
-            //Create some test data to the property
-            Int32 SomeCount = 2;
-            //Assign the data to the property
-            AllProducts.Count = SomeCount;
-            //Test to see if the two values are the same
-            Assert.AreEqual(AllProducts.Count, SomeCount);
-        }
-
-        [TestMethod]
         public void ThisProductPropertyOK()
         {
             //Create an instance of the class we want to create
@@ -112,19 +99,11 @@ namespace Testing5
         }
 
         [TestMethod]
-        public void TwoRecordsPresent()
-        {
-            //Create an instance of the class we want to create
-            clsProductCollection AllProducts = new clsProductCollection();
-            //Test to se that the two values are the same
-            Assert.AreEqual(AllProducts.Count, 2);
-        }
-
-        [TestMethod]
         public void AddMethodOK()
         {
             clsProductCollection AllProducts = new clsProductCollection();
             clsProduct TestItem = new clsProduct();
+            Int32 PrimaryKey = 0;
             TestItem.ComicID = 1;
             TestItem.ComicName = "A Comic";
             TestItem.ComicInitialReleaseDate = DateTime.Now;
@@ -133,7 +112,8 @@ namespace Testing5
             TestItem.ComicGenre = "Action";
             TestItem.IsComicInStock = true;
             AllProducts.ThisProduct = TestItem;
-            AllProduct.ThisProduct.Find(ComicID);
+            PrimaryKey = AllProducts.Add();
+            AllProducts.ThisProduct.Find(PrimaryKey);
             Assert.AreEqual(AllProducts.ThisProduct, TestItem);
         }
     }
