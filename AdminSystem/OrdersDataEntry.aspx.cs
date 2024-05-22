@@ -8,9 +8,21 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 OrderNo;
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+        //get the number of the orders to be processed
+        OrderNo = Convert.ToInt32(Session["OrderNo"]);
+        if (IsPostBack == false)
+        {
+            //if this not a new record
+            if (OrderNo != -1)
+            {
+                //display the current data for the record
+                DisplayOrder();
+            }
+        }
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -19,7 +31,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsOrders AnOrder = new clsOrders();
         //capture the data
         
-        string OrderNo = txtOrderNo.Text;
+        
         string ItemCount = txtItemCount.Text;
         string DateOfOrder = txtDateOfOrder.Text; 
         string Dispatched = chkDispatched.Text; 
@@ -33,6 +45,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if (Error == "")
         {
             //capture data
+            AnOrder.OrderNo = OrderNo;
             AnOrder.ItemCount = Convert.ToInt32(ItemCount);
             AnOrder.DateOfOrder = Convert.ToDateTime(DateOfOrder);
             AnOrder.SubTotal = Convert.ToDouble(SubTotal);
@@ -41,10 +54,25 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnOrder.Dispatched = chkDispatched.Checked;
             //create a new instance of the orders collection
             clsOrdersCollection OrdersList = new clsOrdersCollection();
-            //set the ThisOrders property
-            OrdersList.ThisOrders = AnOrder;
-            //add the new record
-            OrdersList.Add();
+
+            //if this is a new record then add the data
+            if (OrderNo == -1)
+            {
+                //set the ThisOrders property
+                OrdersList.ThisOrders = AnOrder;
+                //add the new record
+                OrdersList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                OrdersList.ThisOrders.Find(OrderNo);
+                //set the ThisOrders property
+                OrdersList.ThisOrders = AnOrder;
+                //update the record
+                OrdersList.Update();
+            }
             //redirect back to the list page
             Response.Redirect("OrdersList.aspx");
         }
@@ -55,10 +83,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-
-    }
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
@@ -84,5 +108,23 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtDeliveryNote.Text = AnOrder.DeliveryNote;
             chkDispatched.Checked = AnOrder.Dispatched;
         }
+    }
+
+    void DisplayOrder()
+    {
+        //create an instance of the Orders Collection
+        clsOrdersCollection Orders = new clsOrdersCollection();
+        //find the record to update
+        Orders.ThisOrders.Find(OrderNo);
+        //display the data for the record
+        txtOrderNo.Text = Orders.ThisOrders.OrderNo.ToString();
+        txtItemCount.Text = Orders.ThisOrders.ItemCount.ToString();
+        txtDateOfOrder.Text = Orders.ThisOrders.DateOfOrder.ToString();
+        txtSubTotal.Text = Orders.ThisOrders.SubTotal.ToString();
+        txtTotal.Text = Orders.ThisOrders.Total.ToString();
+        chkDispatched.Checked = Orders.ThisOrders.Dispatched;
+        txtDeliveryNote.Text = Orders.ThisOrders.DeliveryNote.ToString();
+
+
     }
 }
