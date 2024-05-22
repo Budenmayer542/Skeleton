@@ -10,7 +10,7 @@ public partial class _1_List : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if this is the first time the page is displayed
+        //if this is the first time the page the page is displayed
         if (IsPostBack == false)
         {
             //update the list box
@@ -20,21 +20,16 @@ public partial class _1_List : System.Web.UI.Page
 
     void DisplayOrders()
     {
-        //create an instance of the Orders Collection
-        clsOrdersCollection orders = new clsOrdersCollection();
-        //set the data source to list of orders in the collection
-        lstOrdersList.DataSource = orders.OrdersList;
-        //set the name of the primary key
+        //create the data source to list of the orders in the collection
+        clsOrdersCollection Orders = new clsOrdersCollection();
+        //set the date source to list of orders in the collection
+        lstOrdersList.DataSource = Orders.OrdersList;
+        //set the name of the pimary key
         lstOrdersList.DataValueField = "OrderNo";
-        //set the data field to display
+        //set the date field to display
         lstOrdersList.DataTextField = "Total";
-        //bind the dat to the list
+        //bind the date to the list
         lstOrdersList.DataBind();
-    }
-
-    protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
@@ -43,5 +38,31 @@ public partial class _1_List : System.Web.UI.Page
         Session["OrderNo"] = -1;
         //redirect to the data entry page
         Response.Redirect("OrdersDataEntry.aspx");
+    }
+
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        //variable to store the primary key value of the list
+        Int32 OrderNo;
+        //if a record has been selected from the list
+        if(lstOrdersList.SelectedIndex !=-1) 
+        {
+            //get the primary key value of the record to edit
+            OrderNo = Convert.ToInt32(lstOrdersList.SelectedValue);
+            //store the data in the session object
+            Session["OrderNo"] = OrderNo;
+            //redirect to the edit page
+            Response.Redirect("OrdersDataEntry.aspx");
+        }
+        else //if no record has been selected
+        {
+            lblError.Text = "Please select a record from the list to edit";
+        }
+    }
+
+    protected void lstOrdersList_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
     }
 }
