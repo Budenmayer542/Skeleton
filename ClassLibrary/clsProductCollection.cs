@@ -103,5 +103,12 @@ namespace ClassLibrary
             DB.Execute("sproc_tblComic_Update");
 
         }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ComicID", mThisProduct.ComicID);
+            DB.Execute("sproc_tblComic_Delete");
+        }
     }
 }

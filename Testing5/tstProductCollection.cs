@@ -142,5 +142,28 @@ namespace Testing5
             AllProducts.ThisProduct.Find(PrimaryKey);
             Assert.AreEqual(AllProducts.ThisProduct, TestItem);
         }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            clsProductCollection AllProducts = new clsProductCollection();
+            clsProduct TestItem = new clsProduct();
+            Int32 PrimaryKey = 0;
+            TestItem.ComicID = 1;
+            TestItem.ComicName = "A Comic";
+            TestItem.ComicInitialReleaseDate = DateTime.Now;
+            TestItem.ComicArtist = "Artista";
+            TestItem.ComicPrice = 7.99;
+            TestItem.ComicGenre = "Action";
+            TestItem.IsComicInStock = true;
+            AllProducts.ThisProduct = TestItem;
+            PrimaryKey = AllProducts.Add();
+            TestItem.ComicID = PrimaryKey;
+            AllProducts.ThisProduct.Find(PrimaryKey);
+            AllProducts.Delete();
+            Boolean Found = AllProducts.ThisProduct.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+        }
+
     }
 }
