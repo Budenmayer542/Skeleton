@@ -144,7 +144,7 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string comicName, string comicArtist, string comicPrice, string comicInitialReleaseDate, string comicGenre)
+        public string Valid(string comicName, string comicArtist, string comicInitialReleaseDate, string comicGenre, string comicPrice)
         {
             String Error = "";
             DateTime DateTemp;
@@ -192,12 +192,12 @@ namespace ClassLibrary
                 Error = Error + "The date was not a valid date or date format";
             }
 
-            if (ComicPrice > 999999999999999999)
+            if (comicPrice.Length > 21)
             {
                 Error = Error + "The price cannot be higher than 18 digits";
             }
             
-            if (ComicPrice < 0)
+            if (comicPrice.Length < 0)
             {
                 Error = Error + "The price cannot be in the negatives";
             }
