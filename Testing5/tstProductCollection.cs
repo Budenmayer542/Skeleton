@@ -165,5 +165,51 @@ namespace Testing5
             Assert.IsFalse(Found);
         }
 
+        [TestMethod]
+        public void ReportByComicNameMethodOK()
+        {
+            clsProductCollection AllProducts = new clsProductCollection();
+            clsProductCollection FilteredProducts = new clsProductCollection();
+            FilteredProducts.ReportByComicName("");
+            Assert.AreEqual(AllProducts.Count, FilteredProducts.Count);
+        }
+
+        [TestMethod]
+        public void ReportByComicNameNoneFound()
+        {
+            clsProductCollection FilteredProducts = new clsProductCollection();
+            FilteredProducts.ReportByComicName("xyx xyx");
+            Assert.AreEqual(0, FilteredProducts.Count);
+        }
+
+        [TestMethod]
+        public void ReportByComicNameTestDataFound()
+        {
+            //Create an instance of the filtered data
+            clsProductCollection FilteredProduct = new clsProductCollection();
+            //Variables to store the outcome
+            Boolean OK = true;
+            //Apply a comic that doesn't exist
+            FilteredProduct.ReportByComicName("yyyyyyyyyyyy");
+            //Check that the correct number of records are found
+            if (FilteredProduct.Count > 2)
+            {
+                //Check to see that the first record is Akame ga kill!
+                if (FilteredProduct.ProductList[0].ComicID != 25) 
+                {
+                    OK = false;
+                }
+                if (FilteredProduct.ProductList[1].ComicID != 26)
+                {
+                    OK = false;
+                }
+            else
+                {
+                    OK  = false;
+                }
+            //test to see that there are no records
+            Assert.IsTrue(OK);
+            }
+        }
     }
 }
