@@ -79,14 +79,29 @@ namespace ClassLibrary
         {
             clsDataConnection DB = new clsDataConnection();
 
-            DB.AddParameter("@ComicName",mThisProduct.ComicName);
-            DB.AddParameter("@ComicInitialReleaseDate",mThisProduct.ComicInitialReleaseDate);
-            DB.AddParameter("@ComicArtist",mThisProduct.ComicArtist);
-            DB.AddParameter("@ComicPrice",mThisProduct.ComicPrice);
-            DB.AddParameter("@ComicGenre",mThisProduct.ComicGenre);
-            DB.AddParameter("@IsComicInStock",mThisProduct.IsComicInStock);
+            DB.AddParameter("@ComicName", mThisProduct.ComicName);
+            DB.AddParameter("@ComicInitialReleaseDate", mThisProduct.ComicInitialReleaseDate);
+            DB.AddParameter("@ComicArtist", mThisProduct.ComicArtist);
+            DB.AddParameter("@ComicPrice", mThisProduct.ComicPrice);
+            DB.AddParameter("@ComicGenre", mThisProduct.ComicGenre);
+            DB.AddParameter("@IsComicInStock", mThisProduct.IsComicInStock);
 
             return DB.Execute("sproc_tblComic_Insert");
+        }
+
+        public void Update()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@ComicID", mThisProduct.ComicID);
+            DB.AddParameter("@ComicName", mThisProduct.ComicName);
+            DB.AddParameter("@ComicInitialReleaseDate", mThisProduct.ComicInitialReleaseDate);
+            DB.AddParameter("@ComicArtist", mThisProduct.ComicArtist);
+            DB.AddParameter("@ComicPrice", mThisProduct.ComicPrice);
+            DB.AddParameter("@ComicGenre", mThisProduct.ComicGenre);
+            DB.AddParameter("@IsComicInStock", mThisProduct.IsComicInStock);
+
+            DB.Execute("sproc_tblComic_Update");
+
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Testing5
         string ComicArtist = "Person";
         string ComicInitialReleaseDate = DateTime.Now.ToShortDateString();
         string ComicGenre = "Action";
+        string ComicPrice = "1.99";
 
         [TestMethod]
         public void InstanceOK()
@@ -254,7 +255,7 @@ namespace Testing5
         {
             clsProduct AProduct = new clsProduct();
             String Error = "";
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             Assert.AreEqual(Error, "");
         }
 
@@ -265,7 +266,7 @@ namespace Testing5
             clsProduct AProduct = new clsProduct();
             String Error = "";
             string ComicName = "";
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -280,7 +281,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicName = "a"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -296,7 +297,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicName = "aa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -312,7 +313,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -329,7 +330,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -345,7 +346,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -362,7 +363,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -380,7 +381,7 @@ namespace Testing5
             string ComicName = "";
             ComicName = ComicName.PadRight(500, 'a');
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -400,7 +401,7 @@ namespace Testing5
             clsProduct AProduct = new clsProduct();
             String Error = "";
             string ComicArtist = "";
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -415,7 +416,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicArtist = "a"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -431,7 +432,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicArtist = "aa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -447,7 +448,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -464,7 +465,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -480,7 +481,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -497,7 +498,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -515,7 +516,7 @@ namespace Testing5
             string ComicArtist = "";
             ComicArtist = ComicArtist.PadRight(500, 'a');
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -529,7 +530,7 @@ namespace Testing5
             clsProduct AProduct = new clsProduct();
             String Error = "";
             string ComicGenre = "";
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             Assert.AreNotEqual(Error, "");
         }
 
@@ -544,7 +545,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicGenre = "a"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -560,7 +561,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicGenre = "aa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -576,7 +577,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -593,7 +594,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -609,7 +610,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -626,7 +627,7 @@ namespace Testing5
             //create some test data to pass to the method
             string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -644,7 +645,7 @@ namespace Testing5
             string ComicGenre = "";
             ComicGenre = ComicGenre.PadRight(500, 'a');
             //invoke the method
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
@@ -658,7 +659,7 @@ namespace Testing5
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-100);
             string DateAdded = TestDate.ToString();
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             Assert.AreEqual(Error, "");
         }
 
@@ -671,7 +672,7 @@ namespace Testing5
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddDays(-1);
             string DateAdded = TestDate.ToString();
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             Assert.AreEqual(Error, "");
         }
 
@@ -683,7 +684,7 @@ namespace Testing5
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             string DateAdded = TestDate.ToString();
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             Assert.AreEqual(Error, "");
         }
 
@@ -696,7 +697,7 @@ namespace Testing5
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddDays(1);
             string DateAdded = TestDate.ToString();
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             Assert.AreEqual(Error, "");
         }
 
@@ -709,7 +710,7 @@ namespace Testing5
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(100);
             string DateAdded = TestDate.ToString();
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             Assert.AreEqual(Error, "");
         }
 
@@ -719,7 +720,7 @@ namespace Testing5
             clsProduct AProduct = new clsProduct();
             String Error = "";
             string ComicInitialReleaseDate = "Not a date :)";
-            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre);
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             Assert.AreNotEqual(Error, "");
         }
 
