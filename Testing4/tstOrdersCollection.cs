@@ -45,7 +45,7 @@ namespace Testing4
             Assert.AreEqual(AllOrders.OrdersList, TestList);
         }
 
-       
+
 
         [TestMethod]
         public void ThisOrdersPropertyOK()
@@ -161,6 +161,40 @@ namespace Testing4
             AllOrders.ThisOrders.Find(PrimaryKey);
             //test to see if ThisOrder matches the test data
             Assert.AreEqual(AllOrders.ThisOrders, TestItem);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //crate an instance of the class we want to create
+            clsOrdersCollection AllOrders = new clsOrdersCollection();
+            //create the item of test data
+            clsOrders TestItem = new clsOrders();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.Dispatched = true;
+            TestItem.OrderNo = 1;
+            TestItem.ItemCount = 1;
+            TestItem.DateOfOrder = DateTime.Now;
+            TestItem.SubTotal = 33.55;
+            TestItem.Total = 40.00;
+            TestItem.DeliveryNote = "I have moved out";
+            //set ThisOrders to the test data
+            AllOrders.ThisOrders = TestItem;
+            //add the record
+            PrimaryKey = AllOrders.Add();
+            //set the primary key of the test data
+            TestItem.OrderNo = PrimaryKey;
+            //find the record
+            AllOrders.ThisOrders.Find(PrimaryKey);
+            //delete the record
+            AllOrders.Delete();
+            //Now find the record
+            Boolean Found = AllOrders.ThisOrders.Find(PrimaryKey);
+            //test to see that the record was not found
+            Assert.IsFalse(Found);
+
         }
     }
 }
