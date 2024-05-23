@@ -13,6 +13,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;<asp:TextBox ID="txtCustomerId" runat="server" OnTextChanged="txtCustomerId_TextChanged"></asp:TextBox>
             &nbsp;
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" style="z-index: 1; left: 467px; top: 7px; position: absolute" Text="Find" />
             </p>
         <p>
             <asp:Label ID="IblFullName" runat="server" Text="FullName"></asp:Label>
