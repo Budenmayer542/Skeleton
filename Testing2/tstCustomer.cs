@@ -36,9 +36,9 @@ namespace Testing2
             //create some test data to aasign to the property
             DateTime TestData = DateTime.Now;
             //assign the data to the property
-            AnCustomer.SignUp = TestData;
+            AnCustomer.Signupdate = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnCustomer.SignUp, TestData);
+            Assert.AreEqual(AnCustomer.Signupdate, TestData);
         }
 
         [TestMethod]
@@ -64,7 +64,7 @@ namespace Testing2
             clsCustomer AnCustomer = new clsCustomer();
             //create some test data to aasign to the property
 
-            Int64 TestData = 07436849998;
+           String TestData = "07436849998";
 
 
             //assign the data to the property
@@ -121,16 +121,16 @@ namespace Testing2
             //create a boolean variable to store the result of the search
             Boolean found = false;
             //create a boolean variable to record if the data is ok (assume it is)
-            Boolean Ok = true;
+            Boolean OK = true;
             //create some test data to use with the method
             Int32 CustomerId = 1;
             //invoke the method
             found = AnCustomer.Find(CustomerId);
             //check the Customer id
             if (AnCustomer.CustomerId != 1)
-            { Ok = false; }
+            { OK = false; }
             //test to see that the result is correct
-            Assert.IsTrue(Ok);
+            Assert.IsTrue(OK);
         }
         [TestMethod]
         public void TestFullNameFound()
@@ -139,16 +139,16 @@ namespace Testing2
             //create a boolean variable to store the result of the search
             Boolean found = false;
             //create a boolean variable to record if the data is ok 
-            Boolean Ok = true;
+            Boolean OK = true;
             //create some test data to use with the method
             Int32 CustomerId = 1;
             //invoke the method
             found = AnCustomer.Find(CustomerId);
             //ccheck the customer id
-            if (AnCustomer.FullName != "Smily")
-            { Ok = false; }
+            if (AnCustomer.FullName != "alex")
+            { OK = false; }
             //test to see that the result is correct
-            Assert.IsTrue(Ok);
+            Assert.IsTrue(OK);
         }
         [TestMethod]
         public void TestSignUpFound()
@@ -157,16 +157,16 @@ namespace Testing2
             //create a boolean variable to store the result of the search
             Boolean found = false;
             //create a boolean variable to record if the data is ok 
-            Boolean Ok = true;
+            Boolean OK = true;
             //create some test data to use with the method
             Int32 CustomerId = 1;
             //invoke the method
             found = AnCustomer.Find(CustomerId);
             //ccheck the customer id
-            if (AnCustomer.SignUp != Convert.ToDateTime("02/05/2024"))
-            { Ok = false; }
+            if (AnCustomer.Signupdate != Convert.ToDateTime("30/04/2024"))
+            { OK = false; }
             //test to see that the result is correct
-            Assert.IsTrue(Ok);
+            Assert.IsTrue(OK);
         }
         [TestMethod]
         public void TestActiveFound()
@@ -175,16 +175,16 @@ namespace Testing2
             //create a boolean variable to store the result of the search
             Boolean found = false;
             //create a boolean variable to record if the data is ok 
-            Boolean Ok = true;
+            Boolean OK = true;
             //create some test data to use with the method
             Int32 CustomerId = 1;
             //invoke the method
             found = AnCustomer.Find(CustomerId);
             //ccheck the customer id
             if (AnCustomer.Active != true)
-            { Ok = false; }
+            { OK = false; }
             //test to see that the result is correct
-            Assert.IsTrue(Ok);
+            Assert.IsTrue(OK);
         }
         [TestMethod]
         public void TestEmailAddressFound()
@@ -193,16 +193,16 @@ namespace Testing2
             //create a boolean variable to store the result of the search
             Boolean found = false;
             //create a boolean variable to record if the data is ok 
-            Boolean Ok = true;
+            Boolean OK = true;
             //create some test data to use with the method
             Int32 CustomerId = 1;
             //invoke the method
             found = AnCustomer.Find(CustomerId);
             //ccheck the customer id
-            if (AnCustomer.EmailAddress != "Smily74@gmail.com")
-            { Ok = false; }
+            if (AnCustomer.EmailAddress != "P2731599@my365.dmu.ac.uk")
+            { OK = false; }
             //test to see that the result is correct
-            Assert.IsTrue(Ok);
+            Assert.IsTrue(OK);
         }
         [TestMethod]
         public void TestPhoneNumberFound()
@@ -211,16 +211,16 @@ namespace Testing2
             //create a boolean variable to store the result of the search
             Boolean found = false;
             //create a boolean variable to record if the data is ok 
-            Boolean Ok = true;
+            Boolean OK = true;
             //create some test data to use with the method
             Int32 CustomerId = 1;
             //invoke the method
             found = AnCustomer.Find(CustomerId);
             //ccheck the customer id
-            if (AnCustomer.PhoneNumber != 0743684998)
-            { Ok = false; }
+            if (AnCustomer.PhoneNumber != "07437568598")
+            { OK = false; }
             //test to see that the result is correct
-            Assert.IsTrue(Ok);
+            Assert.IsTrue(OK);
         }
     }
 }

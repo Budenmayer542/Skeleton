@@ -36,12 +36,37 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AnCustomer.CustomerId = Convert.ToInt32(txtCustomerId.Text);
         AnCustomer.FullName = txtFullName.Text;
         AnCustomer.EmailAddress = txtEmailAddress.Text;
-        AnCustomer.SignUp = Convert.ToDateTime(DateTime.Now);
+        AnCustomer.Signupdate = Convert.ToDateTime(DateTime.Now);
         AnCustomer.Active = chkActive.Checked;
-        AnCustomer.PhoneNumber = long.Parse(txtPhoneNumber.Text);
+        AnCustomer.PhoneNumber = (txtPhoneNumber.Text);
         //st0re the address in the session object
         Session["AnCustomer"] = AnCustomer;
         //navigate to the view page
         Response.Redirect("CustomerViewer.aspx");
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        //create an instance of the customer class
+        clsCustomer AnCustomer = new clsCustomer();
+        //create a variable to store the primary key
+        Int32 CustomerId;
+        //create a variable to store the result of the find operation
+        Boolean Found = false;
+        //get the primary key entered by the user
+        CustomerId = Convert.ToInt32(txtCustomerId.Text);
+        //found the record
+        Found = AnCustomer.Find(CustomerId);
+        //if found 
+        if(Found == true)
+        {
+            //display the values of the properties in the form
+            txtFullName.Text = AnCustomer.FullName;
+            txtEmailAddress.Text = AnCustomer.EmailAddress;
+            txtPhoneNumber.Text = AnCustomer.PhoneNumber;
+            txtSignUp.Text = AnCustomer.Signupdate.ToString();
+            chkActive.Checked = AnCustomer.Active;
+           
+        }
     }
 }

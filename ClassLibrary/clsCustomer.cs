@@ -18,22 +18,8 @@ namespace ClassLibrary
             { //this line of code allows data out of the property
                 mCustomerId = value;
             } }
-        private bool mActive;
-        public bool Active { get
-            {//this line of code sends data out of the property
-                return mActive;
-            } set
-            {//this line of code allows data out of the property
-                mActive = value;
-            } }
-        private DateTime mSignUp;
-        public DateTime SignUp { get
-            {//this line of code sends data out of the property
-                return mSignUp;
-            } set
-            { //this line of code allows data out of the property
-                mSignUp = value;
-            } }
+        
+       
         //private data memeber for  the fullname property
         private String mFullName;
         public string FullName { get
@@ -44,8 +30,20 @@ namespace ClassLibrary
                 mFullName = value;
             }
         }
-        private long mPhoneNumber;
-        public long PhoneNumber { get
+        private String mEmailAddress;
+        public string EmailAddress
+        {
+            get
+            {//this line of code sends data out of the property
+                return mEmailAddress;
+            }
+            set
+            {//this line of code allows data out of the property
+                mEmailAddress = value;
+            }
+        }
+        private string mPhoneNumber;
+        public string PhoneNumber { get
             {//this line of code sends data out of the property
                 return mPhoneNumber;
             } set
@@ -53,27 +51,59 @@ namespace ClassLibrary
                 mPhoneNumber = value;
             }
         }
-        private String mEmailAddress;
-        public string EmailAddress { get
-            {//this line of code sends data out of the property
-                return mEmailAddress;
-            } set
-            {//this line of code allows data out of the property
-                mEmailAddress = value;
-            } }
-        
-
-        public bool Find(int customerId)
+        private DateTime mSignupdate;
+        public DateTime Signupdate
         {
-            //set the private data members to the test data value
-            mCustomerId = 1;
-            mFullName = "Smily";
-            mSignUp = Convert.ToDateTime("02/05/2024");
-            mActive = true;
-            mEmailAddress = "Smily74@gmail.com";
-            mPhoneNumber = 0743684998;
-            //always return true
-            return true;
+            get
+            {//this line of code sends data out of the property
+                return mSignupdate;
+            }
+            set
+            { //this line of code allows data out of the property
+                mSignupdate = value;
+            }
+        }
+        private bool mActive;
+        public bool Active
+        {
+            get
+            {//this line of code sends data out of the property
+                return mActive;
+            }
+            set
+            {//this line of code allows data out of the property
+                mActive = value;
+            }
+        }
+
+
+
+        public bool Find(int CustomerId)
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the paramter for the customer id to search for
+            DB.AddParameter("CustomerId", CustomerId);
+            //excute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByCustomerId");
+            //if one record is found (there should be either one or zero)
+            if (DB.Count == 1) { //copy the data from the database to the private daat members
+                mCustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
+                mFullName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
+                mEmailAddress = Convert.ToString(DB.DataTable.Rows[0]["EmailAddress"]);
+                mPhoneNumber = Convert.ToString(DB.DataTable.Rows[0]["PhoneNumber"]);
+                mSignupdate = Convert.ToDateTime(DB.DataTable.Rows[0]["Signupdate"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                //return that everything worked Ok
+                return true;
+            }
+            //if on record was found
+            else
+            {
+                //return false indicating there is a problem
+                return false;
+            }
+           
         }
     }
 }
