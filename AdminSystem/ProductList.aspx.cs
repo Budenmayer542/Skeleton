@@ -61,4 +61,27 @@ public partial class _1_List : System.Web.UI.Page
             lblError.Text = "Please select a record from the list to delete";
         }
     }
+
+    protected void btnApplyFilter_Click(object sender, EventArgs e)
+    {
+        clsProductCollection AProduct = new clsProductCollection();
+        AProduct.ReportByComicName(txtFilter.Text);
+        lstComicList.DataSource = AProduct.ProductList;
+        lstComicList.DataValueField = "ComicID";
+        lstComicList.DataValueField = "ComicName";
+        lstComicList.DataBind();
+
+
+    }
+
+    protected void btnClearFilter_Click(object sender, EventArgs e)
+    {
+        clsProductCollection AProduct = new clsProductCollection();
+        AProduct.ReportByComicName("");
+        txtFilter.Text = "";
+        lstComicList.DataSource = AProduct.ProductList;
+        lstComicList.DataValueField = "ComicID";
+        lstComicList.DataValueField = "ComicName";
+        lstComicList.DataBind();
+    }
 }
