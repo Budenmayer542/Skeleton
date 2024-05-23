@@ -30,8 +30,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnSupplier.SupplierEmail = SupplierEmail; //capture Supplier email
             AnSupplier.SupplierTelephone = SupplierTelephone; //capture Supplier telephone
             AnSupplier.InitialContractDate = Convert.ToDateTime(InitialContractDate); //capture Initial contact date
-            Session["AnSupplier"] = AnSupplier; // store name in session object
-            Response.Redirect("SupplierViewer.aspx"); //navigate to view page
+            AnSupplier.SupplierActive = chkActive.Checked; //capture Supplier active
+            clsSupplierCollection SupplierList = new clsSupplierCollection(); //new instance of supplier collection
+            SupplierList.ThisSupplier = AnSupplier;
+            SupplierList.Add();
+            Response.Redirect("SupplierList.aspx"); //navigate to view page
         }
         else
         {
@@ -49,7 +52,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsSupplier AnSupplier = new clsSupplier(); //Creates a new instance of supplier class
         Int32 SupplierId; //create a varable to store primary key
         Boolean Found = false; //Stores the result of the find operation
-        SupplierId = Convert.ToInt32(txtSupplierID.Text); //get primary key entered by user 
+        SupplierId = Convert.ToInt32(txtSupplierId.Text); //get primary key entered by user 
         Found = AnSupplier.Find(SupplierId); //find the record 
         if (Found == true)
         {

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Reflection;
+using System.Runtime.Serialization.Formatters;
 
 namespace ClassLibrary
 {
     public class clsSupplier
     {
+
         private Int32 mSupplierId; //private data member for the supplier id property
         public Int32 SupplierId //public property 
         {
@@ -184,6 +186,8 @@ namespace ClassLibrary
 
             return Error; //return error message 
         }
+
+  
 
 
     }

@@ -10,8 +10,8 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:Label ID="lblSupplierID" runat="server" style="z-index: 1; left: 32px; top: 35px; position: absolute; margin-bottom: 0px" Text="Supplier ID" width="135px"></asp:Label>
-        <asp:TextBox ID="txtSupplierID" runat="server" style="z-index: 1; top: 35px; position: absolute; left: 192px; width: 200px;"></asp:TextBox>
+        <asp:Label ID="lblSupplierId" runat="server" style="z-index: 1; left: 32px; top: 35px; position: absolute; margin-bottom: 0px" Text="Supplier ID" width="135px"></asp:Label>
+        <asp:TextBox ID="txtSupplierId" runat="server" style="z-index: 1; top: 35px; position: absolute; left: 192px; width: 200px;"></asp:TextBox>
         <p>
             <asp:Label ID="lblSupplierName" runat="server" style="z-index: 1; left: 32px; top: 62px; position: absolute" Text="Supplier Name" width="135px"></asp:Label>
         </p>
