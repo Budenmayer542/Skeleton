@@ -9,6 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" style="z-index: 1; left: 123px; top: 472px; position: absolute" Text="Delete" />
             <asp:ListBox ID="lstOrdersList" runat="server" Height="438px" Width="430px" OnSelectedIndexChanged="lstOrdersList_SelectedIndexChanged"></asp:ListBox>
         </div>
         <p>
