@@ -73,11 +73,32 @@ namespace Testing3
             Assert.AreEqual(AllSuppliers.Count, TestList.Count); //test to see if the two values are the same
         }
 
-        
-       
-        
+        [TestMethod]
+        public void AddMethodOk()
+        {
+            clsSupplierCollection AllSuppliers = new clsSupplierCollection(); //new instance of cls supplier collection
+            clsSupplier TestItem = new clsSupplier(); //Create the item of test data
+            Int32 PrimaryKey = 0; //variable to store the primary key
+            //Set its properties
+            TestItem.SupplierId = 1;
+            TestItem.SupplierName = "Manga comics ltd";
+            TestItem.ContactPerson = "jeff";
+            TestItem.SupplierEmail = "MangaComicsLtd@outlook.com";
+            TestItem.SupplierTelephone = "07738062845";
+            TestItem.InitialContractDate = DateTime.Now;
+            TestItem.SupplierActive = true;
+            AllSuppliers.ThisSupplier = TestItem; //set ThisSupplier to the test data
+            PrimaryKey = AllSuppliers.Add(); //add the record 
+            TestItem.SupplierId = PrimaryKey; //set the primary key of the test data
+            AllSuppliers.ThisSupplier.Find(PrimaryKey); //find the record 
+            Assert.AreEqual(AllSuppliers.ThisSupplier, TestItem); //test to see if the two values are the same
+        }
 
-      
+
+
+
+
+
 
 
     }
