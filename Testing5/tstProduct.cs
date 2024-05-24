@@ -724,5 +724,81 @@ namespace Testing5
             Assert.AreNotEqual(Error, "");
         }
 
+        [TestMethod]
+        public void ComicPriceMinLessOne()
+        {  //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //create some test data to assign to the property
+            String Error = "";
+            string ComicPrice = "-0.01";
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicPriceMin()
+        {  //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //create some test data to assign to the property
+            String Error = "";
+            string ComicPrice = "0.00";
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicPriceMinPlusOne()
+        {  //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //create some test data to assign to the property
+            String Error = "";
+            string ComicPrice = "0.01";
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicPriceMaxLessOne()
+        {  //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //create some test data to assign to the property
+            String Error = "";
+            string ComicPrice = "999999999999999999.98";
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicPriceMax()
+        {  //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //create some test data to assign to the property
+            String Error = "";
+            string ComicPrice = "999999999999999999.99";
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicPriceMaxPlusOne()
+        {  //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //create some test data to assign to the property
+            String Error = "";
+            string ComicPrice = "10000000000000000000";
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ComicPriceMid()
+        {  //create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //create some test data to assign to the property
+            String Error = "";
+            string ComicPrice = "499999999999999999.99";
+            Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            Assert.AreEqual(Error, "");
+        }
     }
 }
