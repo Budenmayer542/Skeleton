@@ -64,11 +64,15 @@ public partial class _1_List : System.Web.UI.Page
 
     protected void btnApplyFilter_Click(object sender, EventArgs e)
     {
+        //Create an instance if the address object
         clsProductCollection AProduct = new clsProductCollection();
+        //Retrieve the value of comic name from the presentation layer
         AProduct.ReportByComicName(txtFilter.Text);
+        //Set the data source to the list of comics in the collection
         lstComicList.DataSource = AProduct.ProductList;
+        //Set the name of the primary key
         lstComicList.DataValueField = "ComicID";
-        lstComicList.DataValueField = "ComicName";
+        lstComicList.DataTextField = "ComicName";
         lstComicList.DataBind();
 
 
@@ -81,7 +85,7 @@ public partial class _1_List : System.Web.UI.Page
         txtFilter.Text = "";
         lstComicList.DataSource = AProduct.ProductList;
         lstComicList.DataValueField = "ComicID";
-        lstComicList.DataValueField = "ComicName";
+        lstComicList.DataTextField = "ComicName";
         lstComicList.DataBind();
     }
 }
