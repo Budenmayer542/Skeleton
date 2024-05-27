@@ -26,7 +26,6 @@
         <p>
             <asp:Button ID="btnApplyFilter" runat="server" OnClick="btnApplyFilter_Click" style="top: 401px; left: 21px; position: absolute; height: 26px; width: 99px" Text="Apply Filter" />
             <asp:Button ID="btnClearFilter" runat="server" OnClick="btnClearFilter_Click" style="top: 401px; left: 166px; position: absolute; height: 26px; width: 99px" Text="Clear Filter" />
-            <asp:Button ID="Button1" runat="server" Text="Button" />
         </p>
     </form>
 </body>
