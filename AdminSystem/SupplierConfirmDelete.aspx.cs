@@ -11,7 +11,7 @@ public partial class _1_ConfirmDelete : System.Web.UI.Page
     Int32 SupplierId;
     protected void Page_Load(object sender, EventArgs e)
     {
-        SupplierId = Convert.ToInt32(Session["SupplierId"]);
+        SupplierId = Convert.ToInt32(Session["SupplierId"]); //get the SupplierId from session
 
     }
 

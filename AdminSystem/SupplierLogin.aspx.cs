@@ -23,6 +23,7 @@ public partial class SupplierLogin : System.Web.UI.Page
         UserName = Convert.ToString(txtUsername.Text); //get the username entered by the user
         Password = Convert.ToString(txtPassword.Text); //get the password entered by the user
         Found = AnUser.FindUser(UserName, Password); //find the record
+        Session["AnUser"] = AnUser; //add a session to capture the username 
         if (txtUsername.Text == "")
         {
             lblError.Text = "Enter a Username "; //record the error

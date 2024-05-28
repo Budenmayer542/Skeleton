@@ -12,6 +12,7 @@
         </div>
         <asp:ListBox ID="lstSupplierList" runat="server" Height="241px" Width="355px"></asp:ListBox>
             <asp:Button ID="btnDelete" runat="server" Text="Delete" OnClick="btnDelete_Click" style="top: 298px; left: 190px; position: absolute; height: 26px; width: 51px" />
+        <asp:Button ID="btnReturnToMainMenu" runat="server" OnClick="btnReturnToMainMenu_Click" style="top: 401px; position: absolute; height: 26px; width: 142px; left: 347px" Text="Return to Main Menu" />
         <p>
             <asp:Button ID="btnEdit" runat="server" Text="Edit" OnClick="btnEdit_Click" style="top: 298px; left: 106px; position: absolute; height: 26px; right: 470px" width="51px" />
             <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" style="top: 297px; left: 21px; position: absolute; height: 26px; width: 51px; right: 555px; bottom: 351px;" />
