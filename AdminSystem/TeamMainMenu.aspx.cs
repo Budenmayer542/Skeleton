@@ -12,21 +12,6 @@ public partial class TeamMainMenu : System.Web.UI.Page
 
     }
 
-    protected void btnCustomer_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void btnOrder_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void Button3_Click(object sender, EventArgs e)
-    {
-
-    }
-
     protected void btnStaff_Click(object sender, EventArgs e)
     {
 
@@ -36,4 +21,21 @@ public partial class TeamMainMenu : System.Web.UI.Page
     {
         Response.Redirect("SupplierLogin.aspx"); //redirect to login page
     }
+
+    protected void btnCustomer_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnProduct_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnOrders_Click(object sender, EventArgs e)
+    {
+
+    }
+
+   
 }

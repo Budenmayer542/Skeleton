@@ -14,8 +14,10 @@
         <asp:Button ID="btnStaff" runat="server" OnClick="btnStaff_Click" style="top: 78px; left: 301px; position: absolute; height: 27px; width: 84px; right: 558px" Text="Staff" />
         <asp:Button ID="btnSupplier" runat="server" OnClick="btnSupplier_Click" style="top: 78px; left: 393px; position: absolute; height: 27px; width: 84px" Text="Suppliers" />
         <p>
-            <asp:Button ID="btnProduct" runat="server" OnClick="Button3_Click" style="top: 78px; position: absolute; height: 27px; width: 84px; left: 209px" Text="Products" />
+            <asp:Button ID="btnProduct" runat="server" OnClick="btnProduct_Click" style="top: 78px; position: absolute; height: 27px; width: 84px; left: 209px" Text="Products" />
         </p>
+        <div style="height: 664px">
+        </div>
     </form>
 </body>
 </html>
