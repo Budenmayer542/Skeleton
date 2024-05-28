@@ -36,7 +36,7 @@
         <asp:TextBox ID="txtTotal" runat="server" style="z-index: 1; left: 128px; top: 184px; position: absolute"></asp:TextBox>
         <asp:TextBox ID="txtDeliveryNote" runat="server" style="z-index: 1; left: 128px; top: 221px; position: absolute"></asp:TextBox>
         <p>
-            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 26px; top: 334px; position: absolute"></asp:Label>
+            <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 25px; top: 380px; position: absolute"></asp:Label>
             <asp:Label ID="lblDeliveryNote" runat="server" height="19px" style="z-index: 1; left: 12px; top: 220px; position: absolute" Text="Delivery Note" width="86px"></asp:Label>
         </p>
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 201px; top: 318px; position: absolute" Text="Cancel" />

@@ -8,9 +8,21 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 OrderNo;
     protected void Page_Load(object sender, EventArgs e)
     {
-       
+        //get the number of the orders to be processed
+        OrderNo = Convert.ToInt32(Session["OrderNo"]);
+        if (IsPostBack == false)
+        {
+            //if this not a new record
+            if (OrderNo != -1)
+            {
+                //display the current data for the record
+                DisplayOrder();
+            }
+        }
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -18,31 +30,59 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //create a new instance of clsOrders
         clsOrders AnOrder = new clsOrders();
         //capture the data
-        AnOrder.OrderNo = Convert.ToInt32(txtOrderNo.Text);
-        AnOrder.ItemCount = Convert.ToInt32(txtItemCount.Text);
-        AnOrder.DateOfOrder = Convert.ToDateTime(DateTime.Now); 
-        AnOrder.Dispatched = chkDispatched.Checked; 
-        AnOrder.SubTotal = Convert.ToDouble(txtSubTotal.Text);
-        AnOrder.Total = Convert.ToDouble(txtTotal.Text);
-        AnOrder.DeliveryNote = txtDeliveryNote.Text;    
+        
+        
+        string ItemCount = txtItemCount.Text;
+        string DateOfOrder = txtDateOfOrder.Text; 
+        string Dispatched = chkDispatched.Text; 
+        string SubTotal = txtSubTotal.Text;
+        string Total = txtTotal.Text;
+        string DeliveryNote = txtDeliveryNote.Text;
+        //variable to store any error messages
+        string Error = "";
+        //validate the data
+        Error = AnOrder.Valid(ItemCount, DateOfOrder, SubTotal, Total, DeliveryNote);
+        if (Error == "")
+        {
+            //capture data
+            AnOrder.OrderNo = OrderNo;
+            AnOrder.ItemCount = Convert.ToInt32(ItemCount);
+            AnOrder.DateOfOrder = Convert.ToDateTime(DateOfOrder);
+            AnOrder.SubTotal = Convert.ToDouble(SubTotal);
+            AnOrder.Total = Convert.ToDouble(Total);
+            AnOrder.DeliveryNote = DeliveryNote;
+            AnOrder.Dispatched = chkDispatched.Checked;
+            //create a new instance of the orders collection
+            clsOrdersCollection OrdersList = new clsOrdersCollection();
 
-
-
-        //store the Order in the session object
-        Session["AnOrder"] = AnOrder;
-        //navigate to the view page
-        Response.Redirect("OrdersViewer.aspx");
+            //if this is a new record then add the data
+            if (OrderNo == -1)
+            {
+                //set the ThisOrders property
+                OrdersList.ThisOrders = AnOrder;
+                //add the new record
+                OrdersList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                OrdersList.ThisOrders.Find(OrderNo);
+                //set the ThisOrders property
+                OrdersList.ThisOrders = AnOrder;
+                //update the record
+                OrdersList.Update();
+            }
+            //redirect back to the list page
+            Response.Redirect("OrdersList.aspx");
+        }
+        else
+        {
+            //diplay the error message
+            lblError.Text = Error;
+        }
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    protected void Button1_Click1(object sender, EventArgs e)
-    {
-
-    }
 
     protected void btnFind_Click(object sender, EventArgs e)
     {
@@ -68,5 +108,23 @@ public partial class _1_DataEntry : System.Web.UI.Page
             txtDeliveryNote.Text = AnOrder.DeliveryNote;
             chkDispatched.Checked = AnOrder.Dispatched;
         }
+    }
+
+    void DisplayOrder()
+    {
+        //create an instance of the Orders Collection
+        clsOrdersCollection Orders = new clsOrdersCollection();
+        //find the record to update
+        Orders.ThisOrders.Find(OrderNo);
+        //display the data for the record
+        txtOrderNo.Text = Orders.ThisOrders.OrderNo.ToString();
+        txtItemCount.Text = Orders.ThisOrders.ItemCount.ToString();
+        txtDateOfOrder.Text = Orders.ThisOrders.DateOfOrder.ToString();
+        txtSubTotal.Text = Orders.ThisOrders.SubTotal.ToString();
+        txtTotal.Text = Orders.ThisOrders.Total.ToString();
+        chkDispatched.Checked = Orders.ThisOrders.Dispatched;
+        txtDeliveryNote.Text = Orders.ThisOrders.DeliveryNote.ToString();
+
+
     }
 }
