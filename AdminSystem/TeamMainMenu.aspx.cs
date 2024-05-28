@@ -14,8 +14,12 @@ public partial class TeamMainMenu : System.Web.UI.Page
 
     protected void btnStaff_Click(object sender, EventArgs e)
     {
-        //redirect the user to the staff login page
-        Response.Redirect("");
+
+    }
+
+    protected void btnSupplier_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("SupplierLogin.aspx"); //redirect to login page
     }
 
     protected void btnCustomer_Click(object sender, EventArgs e)
@@ -33,8 +37,5 @@ public partial class TeamMainMenu : System.Web.UI.Page
 
     }
 
-    protected void btnSuppliers_Click(object sender, EventArgs e)
-    {
-
-    }
+   
 }

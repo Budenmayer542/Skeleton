@@ -15,6 +15,10 @@ public partial class _1_List : System.Web.UI.Page
         {
             DisplaySuppliers(); //update the listbox
         }
+
+        clsSupplierUser AnUser = new clsSupplierUser(); //new instance of class
+        AnUser = (clsSupplierUser)Session["AnUser"]; //get the data from the session object
+        Response.Write("Logged in as: " + AnUser.UserName); //display the username 
     }
 
     void DisplaySuppliers()
@@ -25,7 +29,6 @@ public partial class _1_List : System.Web.UI.Page
         lstSupplierList.DataTextField = "SupplierName"; //set the data field to display
         lstSupplierList.DataBind(); //bind the data to the list
     }
-
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
@@ -63,8 +66,6 @@ public partial class _1_List : System.Web.UI.Page
         }
     }
 
-
-
     protected void btnApplyFilter_Click(object sender, EventArgs e)
     {
         clsSupplierCollection AnSupplier = new clsSupplierCollection(); //new instance of supplier object
@@ -84,5 +85,10 @@ public partial class _1_List : System.Web.UI.Page
         lstSupplierList.DataValueField = "SupplierId"; //set the name of the primary key
         lstSupplierList.DataTextField = "SupplierName"; //set the name of the field to display
         lstSupplierList.DataBind(); //bind the data to the list
+    }
+
+    protected void btnReturnToMainMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }

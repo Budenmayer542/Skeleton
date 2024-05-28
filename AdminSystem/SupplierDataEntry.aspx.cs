@@ -8,7 +8,7 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
-    Int32 SupplierId;
+    Int32 SupplierId; 
     protected void Page_Load(object sender, EventArgs e)
     {
         SupplierId = Convert.ToInt32(Session["SupplierId"]);
@@ -62,8 +62,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
         }  
     }
 
-
-
     protected void btnFind_Click(object sender, EventArgs e)
     {
         clsSupplier AnSupplier = new clsSupplier(); //Creates a new instance of supplier class
@@ -95,5 +93,15 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtSupplierTelephone.Text = suppliers.ThisSupplier.SupplierTelephone.ToString();    
         txtInitialContactDate.Text = suppliers.ThisSupplier.InitialContractDate.ToString();
         chkActive.Checked = suppliers.ThisSupplier.SupplierActive;
+    }
+
+    protected void btnReturnToMainMenu_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("SupplierList.aspx");
     }
 }
