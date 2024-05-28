@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace ClassLibrary
 {
@@ -104,6 +105,64 @@ namespace ClassLibrary
                 return false;
             }
            
+        }
+
+        public string Valid(string FullName, string EmailAddress, string PhoneNumber, string Signupdate)
+        {
+            //create a string variable to store the erro
+            String Error = "";
+            //create a temporary variable to store the date values
+              DateTime DateTemp;
+            //if fullname is blank
+            if (FullName.Length == 0)
+            {
+                //RECORD the error
+                Error = Error + "The FullName is may not be blank : ";
+
+            }
+            if (FullName.Length > 50)
+            { //record the error
+                Error = Error + "The fullname no must be less than 50 characters : ";
+            }
+            //create an instance of datetime to compare with datetemp
+            //in the if statement
+            DateTime DateComp = DateTime.Now.Date;
+            try
+            { //copy the signupdate value to the DateTemp variable
+                DateTemp = Convert.ToDateTime(Signupdate);
+                //check to see if the date is less than todays date
+                if (DateTemp < DateComp)
+                {
+                    Error = Error + "The signupdate cannot be in the past : ";
+                }
+                //check  to see if the date is greater than todays date
+                if (DateTemp > DateComp)
+                { //record the error
+                    Error = Error + "The signupdate cannot be in the future :";
+                }
+                }
+            catch {//record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+            if (EmailAddress.Length == 0) //if email is blank
+            {
+                Error = Error + "The  email may not be blank : "; //record the error
+            }
+
+            if (EmailAddress.Length > 50) //if  email is grater than 50
+            {
+                Error = Error + "The  email must be less than 50 characters : "; //record the error
+            }
+            if(PhoneNumber.Length == 0) //if   PHONenumber is blank
+            {
+                Error = Error + "The phoneNuMBer may not be blank : "; //record the error
+            }
+
+            if (PhoneNumber.Length > 11) //if the PhoneNumber is grater than 11
+            {
+                Error = Error + "The phonenumber must be less than 11 characters : "; //record the error
+            }
+            return "";
         }
     }
 }
