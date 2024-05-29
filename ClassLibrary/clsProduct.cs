@@ -192,15 +192,23 @@ namespace ClassLibrary
                 Error = Error + "The date was not a valid date or date format";
             }
 
-            if (Convert.ToDouble(comicPrice) > 999999999999999999.99)
+            try
             {
-                Error = Error + "The price cannot be higher than 18 digits";
+                if (Convert.ToDouble(comicPrice) > 999999999999999999.99)
+                {
+                    Error = Error + "The price cannot be higher than 18 digits";
+                }
+
+                if (Convert.ToDouble(comicPrice) < 0)
+                {
+                    Error = Error + "The price cannot be in the negatives";
+                }
             }
-            
-            if (Convert.ToDouble(comicPrice) < 0)
+            catch
             {
-                Error = Error + "The price cannot be in the negatives";
+                Error = Error + "The price is not in the correct format";
             }
+
             return Error;
         }
     }
