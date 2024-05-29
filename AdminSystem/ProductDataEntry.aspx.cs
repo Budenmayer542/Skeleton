@@ -39,7 +39,6 @@ public partial class _1_DataEntry : System.Web.UI.Page
     protected void btnOK_Click(object sender, EventArgs e)
     {
         clsProduct AProduct = new clsProduct();
-        int ComicID = Convert.ToInt32(txtComicID.Text);
         string ComicName = txtComicName.Text;
         string ComicInitialReleaseDate = txtComicInitialReleaseDate.Text;
         string ComicArtist = txtComicArtist.Text;
