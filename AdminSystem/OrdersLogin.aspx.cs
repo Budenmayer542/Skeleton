@@ -28,6 +28,8 @@ public partial class OrdersLogin : System.Web.UI.Page
         Password = Convert.ToString(txtPassword.Text);
         //find the record
         Found = AnUser.FindUser(UserName, Password);
+        //add a session to capture the user name
+        Session["AnUser"]=AnUser;
         //if username and/or password is empty
         if(txtUserName.Text == "")
         {
@@ -44,5 +46,10 @@ public partial class OrdersLogin : System.Web.UI.Page
             //record the error
             lblError.Text = "Login details are incorrect. PLease try again ";
         }
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }
