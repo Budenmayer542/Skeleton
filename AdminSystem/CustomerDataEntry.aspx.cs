@@ -60,10 +60,14 @@ public partial class _1_DataEntry : System.Web.UI.Page
         AnCustomer.Active = chkActive.Checked;
             //capture the phonenumber
         AnCustomer.PhoneNumber = txtPhoneNumber.Text;
-        //st0re the address in the session object
-        Session["AnCustomer"] = AnCustomer;
-        //navigate to the view page
-        Response.Redirect("CustomerViewer.aspx");
+            //create an instance of the customer collection
+            clsCustomerCollection CustomerList = new clsCustomerCollection();
+            //set the thisCustomer property
+            CustomerList.ThisCustomer = AnCustomer;
+            //add the new record
+            CustomerList.Add();
+         //redirect back to the list page
+        Response.Redirect("CustomerList.aspx");
     }
         else
         { //display the error message
