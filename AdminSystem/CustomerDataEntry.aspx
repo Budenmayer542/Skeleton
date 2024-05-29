@@ -44,6 +44,9 @@
             <asp:Button ID="txtCancel" runat="server" Text="Cancel" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </p>
+        <p>
+            <asp:Label ID="lblError" runat="server"></asp:Label>
+        </p>
     </form>
 </body>
 </html>
