@@ -24,7 +24,7 @@ namespace Testing1
             //create an instanmce of the class we want to create
             clsStaff AnStaff = new clsStaff();
             //create some test data to assign to the property
-            Int32 TestData = 1;
+            Int32 TestData = 2731247;
             //assign the data to the property
             AnStaff.StaffId = TestData;
             //test to see that the two values are the same
@@ -38,7 +38,7 @@ namespace Testing1
             //create an instanmce of the class we want to create
             clsStaff AnStaff = new clsStaff();
             //create some test data to assign to the property
-            string TestData = "Manager";
+            string TestData = "Admin";
             //assign the data to the property
             AnStaff.StaffRole = TestData;
             //test to see that the two values are the same
@@ -118,7 +118,7 @@ namespace Testing1
             //create a boolean cariable to store the results of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 StaffId = 21;
+            Int32 StaffId = 2731247;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //test to see if the result is true
@@ -135,16 +135,33 @@ namespace Testing1
             //create a boolean variable to record if the data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffId = 21;
+            Int32 StaffId = 2731247;
             //invoke the method
             Found = AnStaff.Find(StaffId);
             //check the staff id
-            if (AnStaff.StaffId != 21) 
+            if (AnStaff.StaffId != 2731247) 
             {
                 OK = false;
             }
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
+  
     }
+    //[TestMethod]
+    //public void StaffidMinLessOne()
+    //{
+    //    //create an instance of the class we want to create
+    //    clsStaff AnStaff = new clsStaff();
+    //    //string c=variable to store any error message
+    //    String Error = "";
+    //    //create some test data to pass to the method
+    //    string Staffid = ""; //this should trigger an error
+    //                         //invoke the method
+    //    Error = AnStaff.Valid(StaffName, StaffRole, StaffAddress, StaffDOB, StaffPriviliges, StaffSalary);
+    //    //test to see that the result is correct
+    //    Assert.AreNotEqual(Error, "");
+    //}
+
 }
+       
