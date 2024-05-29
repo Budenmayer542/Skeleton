@@ -25,6 +25,7 @@
         <asp:TextBox ID="txtItemCountFilter" runat="server" style="z-index: 1; left: 172px; top: 529px; position: absolute"></asp:TextBox>
         <asp:Button ID="btnApplyFilter" runat="server" OnClick="btnApplyFilter_Click" style="z-index: 1; left: 14px; top: 574px; position: absolute" Text="Apply Filter" />
         <asp:Button ID="btnClearFilter" runat="server" OnClick="btnClearFilter_Click" style="z-index: 1; left: 153px; top: 574px; position: absolute" Text="Clear Filter" />
+        <asp:Button ID="btnReturn" runat="server" OnClick="btnReturn_Click" style="z-index: 1; left: 292px; top: 573px; position: absolute" Text="Return to Main Menu" />
     </form>
 </body>
 </html>
