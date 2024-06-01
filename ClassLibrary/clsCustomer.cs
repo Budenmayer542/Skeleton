@@ -162,7 +162,7 @@ namespace ClassLibrary
             {
                 Error = Error + "The phonenumber must be less than 11 characters : "; //record the error
             }
-            return "";
+            return Error;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using ClassLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -8,12 +9,25 @@ using System.Web.UI.WebControls;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 CustomerId;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        //get the number of the address to be processed
+        CustomerId = Convert.ToInt32(Session["CustomerId"]);
+        if (IsPostBack == false)
+        {
+            //if the is the not a new record
+            if (CustomerId != -1)
+            {
+                //display the current data for the record
+                DisplayCustomer();
+            }
+        }
     }
 
-   
+
+
     protected void txtCustomerId_TextChanged(object sender, EventArgs e)
     {
 
@@ -49,26 +63,42 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if (Error == "")
         { 
             //capture the customerid
-        AnCustomer.CustomerId = Convert.ToInt32(txtCustomerId.Text);
+        AnCustomer.CustomerId = CustomerId;// dont miss this bit !!!
             //capture the fullname
-        AnCustomer.FullName = txtFullName.Text;
+        AnCustomer.FullName = FullName;
             //capture the emailaddress
-        AnCustomer.EmailAddress = txtEmailAddress.Text;
+        AnCustomer.EmailAddress = EmailAddress;
             //capture the signupdate
-        AnCustomer.Signupdate = Convert.ToDateTime(DateTime.Now);
+        AnCustomer.Signupdate = Convert.ToDateTime(Signupdate);
             //capture the active
         AnCustomer.Active = chkActive.Checked;
             //capture the phonenumber
-        AnCustomer.PhoneNumber = txtPhoneNumber.Text;
+        AnCustomer.PhoneNumber = PhoneNumber;
             //create an instance of the customer collection
             clsCustomerCollection CustomerList = new clsCustomerCollection();
-            //set the thisCustomer property
-            CustomerList.ThisCustomer = AnCustomer;
-            //add the new record
-            CustomerList.Add();
+            
+            //if this is a new record i.e customer id = -1 then add the data
+            if (CustomerId == -1)
+            {
+                //set the thiscustomer property
+                CustomerList.ThisCustomer = AnCustomer;
+                //Add the new record
+                CustomerList.Add();
+            }
+            //OTHER wise it must be an update
+            else
+            {
+                //find the record to update
+                CustomerList.ThisCustomer.Find(CustomerId);
+                //set the thisCustomer property
+                CustomerList.ThisCustomer = AnCustomer;
+                //update the record
+                CustomerList.Update();
+            }
          //redirect back to the list page
         Response.Redirect("CustomerList.aspx");
-    }
+        }
+
         else
         { //display the error message
             lblError.Text = Error;
@@ -98,5 +128,22 @@ public partial class _1_DataEntry : System.Web.UI.Page
             chkActive.Checked = AnCustomer.Active;
            
         }
+
+    }
+
+    void DisplayCustomer()
+    {
+        //create an instance of the address book
+        clsCustomerCollection Customer = new clsCustomerCollection();
+        //find the record to update
+        Customer.ThisCustomer.Find(CustomerId);
+        //display the values of the properties in the form
+        txtCustomerId.Text = Customer.ThisCustomer.CustomerId.ToString();
+        txtFullName.Text = Customer.ThisCustomer.FullName.ToString();
+        txtEmailAddress.Text = Customer.ThisCustomer.EmailAddress.ToString();
+        txtPhoneNumber.Text = Customer.ThisCustomer.PhoneNumber.ToString();
+        txtSignUp.Text = Customer.ThisCustomer.Signupdate.ToString();
+        chkActive.Checked = Customer.ThisCustomer.Active;
+
     }
 }

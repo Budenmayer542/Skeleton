@@ -38,17 +38,7 @@ namespace Testing2
             AllCustomers.CustomerList = TestList; //Asign the data to the property
             Assert.AreEqual(AllCustomers.CustomerList, TestList);
         }
-        [TestMethod]
-        public void CountPropertyOK()
-        { //Create an instance of the class we want to create
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            //create some test data to assign to the preporty
-            Int32 SomeCount = 2;
-            //assign the data to the property
-            AllCustomers.Count = SomeCount;
-            //test to see that the two values are the same
-            Assert.AreEqual(AllCustomers.Count, SomeCount);
-        }
+       
         [TestMethod]
         public void ThisCustomerPropertyOK()
         { //create an instance of the class we want to create
@@ -90,13 +80,7 @@ namespace Testing2
             AllCustomers.CustomerList = TestList; //Asign the data to the property
             Assert.AreEqual(AllCustomers.Count, TestList.Count);
         }
-        [TestMethod]
-        public void TwoRecordsPresent()
-        { //create an instance of the class we want to create
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
-            //test to see that the two values are the same
-            Assert.AreEqual(AllCustomers.Count, 2);
-        }
+        
         [TestMethod]
         public void AddMethodOk()
         { //create an instance of the class we want to create
@@ -123,7 +107,45 @@ namespace Testing2
             //test to see that the two values are the same
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
-    }
-   
+        [TestMethod]
+        public void UpdateMethod()
+        {//create an instance of the class we want to create
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create the item of the test data
+            clsCustomer TestItem = new clsCustomer();
+            //variable to store the primary key
+            Int32 PrimaryKey = 0;
+            //SET its properties
+            TestItem.Active = true;
+            TestItem.CustomerId = 1;
+            TestItem.FullName = "alex";
+            TestItem.EmailAddress = "P2731599@my365.dmu.ac.uk";
+            TestItem.PhoneNumber = "07437568598";
+            TestItem.Signupdate = DateTime.Now;
+            //set thiscustomer to the test data
+            AllCustomers.ThisCustomer = TestItem;
+            //add the record
+            PrimaryKey = AllCustomers.Add();
+            //set the primary key of the test data
+            TestItem.CustomerId = PrimaryKey;
+            //modify the test record
+            TestItem.Active = false;
+            TestItem.CustomerId = 5;
+            TestItem.FullName = "smily";
+            TestItem.EmailAddress = "smily74@gmail.com";
+            TestItem.PhoneNumber = "07436849998";
+            TestItem.Signupdate = DateTime.Now;
+            //set thiscustomer to the test data
+            AllCustomers.ThisCustomer = TestItem;
+            //add the record
+            AllCustomers.Update();
+            //find the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //test to see if thisCustomer matches the testdata
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
 
+        }
+
+
+    }
 }

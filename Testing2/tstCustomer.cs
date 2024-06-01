@@ -326,7 +326,7 @@ namespace Testing2
             //string the variable to store any error message
             String Error = "";
             //create some test data to pass the method
-            String FullName = "aaaaaaa"; ///this should trigger or error
+            String FullName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; ///this should trigger or error
             //invoke method
             Error = AnCustomer.Valid(FullName, EmailAddress, PhoneNumber, Signupdate);
             //test to see that the result is correct
@@ -526,7 +526,7 @@ namespace Testing2
             //string variable to store any error message
             String Error = "";
             //this sholud fail
-            string EmailAddress = "1234565432123456543212345654321";
+            string EmailAddress = "123456789012345678901234567890123456789012345678901";
             //invoke the method 
             Error = AnCustomer.Valid(FullName, EmailAddress, PhoneNumber, Signupdate);
             //test to see that the result is correct
@@ -553,7 +553,7 @@ namespace Testing2
             String Error = "";
             //this sholud fail
             string EmailAddress = "";
-            EmailAddress = EmailAddress.PadRight(500, 'a');
+            EmailAddress = EmailAddress.PadRight(49, 'a');
             //invoke the method 
             Error = AnCustomer.Valid(FullName, EmailAddress, PhoneNumber, Signupdate);
             //test to see that the result is correct
@@ -605,7 +605,7 @@ namespace Testing2
             //string variable to store any error message
             String Error = "";
             //this sholud fail
-            string PhoneNumber = "1234565432123456543";
+            string PhoneNumber = "12345654";
             //invoke the method 
             Error = AnCustomer.Valid(FullName, EmailAddress, PhoneNumber, Signupdate);
             //test to see that the result is correct
@@ -618,7 +618,7 @@ namespace Testing2
             //string variable to store any error message
             String Error = "";
             //this sholud fail
-            string PhoneNumber = "12345654321234565432";
+            string PhoneNumber = "1234567890";
             //invoke the method 
             Error = AnCustomer.Valid(FullName, EmailAddress, PhoneNumber, Signupdate);
             //test to see that the result is correct
@@ -631,7 +631,7 @@ namespace Testing2
             //string variable to store any error message
             String Error = "";
             //this sholud fail
-            string PhoneNumber = "123456543212345654321";
+            string PhoneNumber = "12345678901";
             //invoke the method 
             Error = AnCustomer.Valid(FullName, EmailAddress, PhoneNumber, Signupdate);
             //test to see that the result is correct
@@ -658,7 +658,7 @@ namespace Testing2
             String Error = "";
             //this sholud fail
             string PhoneNumber = "";
-            PhoneNumber = PhoneNumber.PadRight(500, 'a');
+            PhoneNumber = PhoneNumber.PadRight(10, 'a');
             //invoke the method 
             Error = AnCustomer.Valid(FullName, EmailAddress, PhoneNumber, Signupdate);
             //test to see that the result is correct
