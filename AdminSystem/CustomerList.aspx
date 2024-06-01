@@ -13,6 +13,7 @@
         </div>
         <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" Width="128px" />
         <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text=" Edit" Width="113px" />
+        <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
         <p>
             <asp:Button ID="lblError" runat="server" />
         </p>
