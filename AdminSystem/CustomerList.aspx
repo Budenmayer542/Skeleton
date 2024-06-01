@@ -15,6 +15,20 @@
         <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text=" Edit" Width="113px" />
         <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
         <p>
+            Enter a FullName&nbsp;
+            <asp:TextBox ID="TextFullNameinput" runat="server"></asp:TextBox>
+        </p>
+        <p>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnApplyFilter" runat="server" OnClick="btnApplyFilter_Click" Text="Apply Filter" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnClearFilter" runat="server" OnClick="btnClearFilter_Click" Text="Clear Filter" />
+        </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
             <asp:Button ID="lblError" runat="server" />
         </p>
     </form>
