@@ -193,7 +193,7 @@ namespace Testing2
             //create an instance of the class we want to create
             clsCustomerCollection FilteredCustomers = new clsCustomerCollection();
             //apply a fullname that doesn't exsit
-            FilteredCustomers.ReportByFullName("Not FullName");
+            FilteredCustomers.ReportByFullName("not a customer");
             //test to see that there are no records
             Assert.AreEqual(0, FilteredCustomers.Count);
         }
@@ -209,13 +209,13 @@ namespace Testing2
             //check that the correct number of records are found 
             if (FilteredCustomers.Count == 2)
             {
-                //check to see that the first record is 29
-                if (FilteredCustomers.CustomerList[0].CustomerId != 29)
+                //check to see that the first record is 91
+                if (FilteredCustomers.CustomerList[0].CustomerId != 91)
                 {
                     OK = false;
                 }
-                // check to see that the first record is 30
-                if (FilteredCustomers.CustomerList[1].CustomerId != 30)
+                // check to see that the first record is 92
+                if (FilteredCustomers.CustomerList[1].CustomerId != 92)
                 {
                     OK = false;
                 }
