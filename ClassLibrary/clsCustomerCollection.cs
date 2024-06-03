@@ -28,7 +28,8 @@ namespace ClassLibrary
                 return mCustomerList.Count;
             }
             set
-            { //we shall worry about this later
+            { 
+                //we shall worry about this later
             }
         }
         public clsCustomer ThisCustomer
@@ -114,6 +115,8 @@ namespace ClassLibrary
             Int32 Index = 0;
             //variable to store the record count
             Int32 RecordCount = 0;
+            //count of records
+            RecordCount = DB.Count;
             //Clear the praviate array list
             mCustomerList = new List<clsCustomer>();
             //while there are recrods to process

@@ -41,8 +41,9 @@
         <p>
             <asp:Button ID="btnOk" runat="server" Text="Ok" OnClick="btnOk_Click1" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="txtCancel" runat="server" Text="Cancel" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="txtCancel" runat="server" Text="Cancel" OnClick="txtCancel_Click" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnReturntoMainMenu" runat="server" Text="Return to Main Menu" />
         </p>
         <p>
             <asp:Label ID="lblError" runat="server"></asp:Label>

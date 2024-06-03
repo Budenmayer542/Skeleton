@@ -15,7 +15,7 @@ public partial class CustomerLogin : System.Web.UI.Page
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        clsSupplierUser AnUser = new clsSupplierUser(); //instance of Supplier user class
+        clsCustomerUser AnUser = new clsCustomerUser(); //instance of Supplier user class
         //variables to store username and password
         string UserName = TxtUserName.Text;
         string Password = TxtPassword.Text;
@@ -40,5 +40,11 @@ public partial class CustomerLogin : System.Web.UI.Page
         {
             lblError.Text = "Login details are incorrect. Please try again "; //record the error
         }
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        //redirect to the main menu
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }
