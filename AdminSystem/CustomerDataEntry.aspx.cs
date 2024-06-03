@@ -146,4 +146,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
         chkActive.Checked = Customer.ThisCustomer.Active;
 
     }
+
+    protected void txtCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("CustomerList.aspx");
+    }
 }

@@ -16,6 +16,13 @@ public partial class _1_List : System.Web.UI.Page
             //updete the list box
             DisplayCustomers();
         }
+
+        //create a new instance of clscustomeruser
+        clsCustomerUser AnUser = new clsCustomerUser();
+        //get data from the session object
+        AnUser = (clsCustomerUser)Session["AnUser"];
+        //display the user name
+        Response.Write("Logged in as:" + AnUser.UserName);
     }
     void DisplayCustomers()
     {

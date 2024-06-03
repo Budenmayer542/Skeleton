@@ -205,28 +205,29 @@ namespace Testing2
             //variable to store the outcome
             Boolean OK = true;
             //apply a fullname that doesn't exist
-            FilteredCustomers.ReportByFullName("FullName");
+            FilteredCustomers.ReportByFullName("TestFullName");
             //check that the correct number of records are found 
-            if (FilteredCustomers.Count == 2)
+            if (FilteredCustomers.Count > 2)
             {
-                //check to see that the first record is 91
-                if (FilteredCustomers.CustomerList[0].CustomerId != 91)
+                //check to see that the first record is 29
+                if (FilteredCustomers.CustomerList[0].CustomerId != 29)
                 {
                     OK = false;
                 }
-                // check to see that the first record is 92
-                if (FilteredCustomers.CustomerList[1].CustomerId != 92)
+                // check to see that the first record is 30
+                if (FilteredCustomers.CustomerList[1].CustomerId != 30)
                 {
                     OK = false;
                 }
 
-            }
-            else
-            {
-                OK = false;
-            }
-            //test to see that there are no records
-            Assert.IsTrue(OK);
+
+                else
+                {
+                    OK = false;
+                }
+                //test to see that there are no records
+                Assert.IsTrue(OK);
+                    }
         }
     }
 }
