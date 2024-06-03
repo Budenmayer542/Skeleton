@@ -21,7 +21,7 @@
         <asp:TextBox ID="txtComicPrice" runat="server" style="z-index: 1; top: 145px; position: absolute; left: 205px"></asp:TextBox>
         <asp:Button ID="btnOK" runat="server" style="z-index: 1; left: 195px; top: 269px; position: absolute" Text="OK" OnClick="btnOK_Click" />
 
-        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 271px; top: 269px; position: absolute" Text="Cancel" />
+        <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 271px; top: 269px; position: absolute" Text="Cancel" OnClick="btnCancel_Click" />
         <asp:Label ID="lblComicGenre" runat="server" style="z-index: 1; left: 23px; top: 175px; position: absolute" Text="Comic genre" height="19px" width="150px"></asp:Label>
         <asp:TextBox ID="txtComicGenre" runat="server" style="z-index: 1; top: 175px; position: absolute; left: 205px"></asp:TextBox>
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 25px; position: absolute; top: 341px"></asp:Label>
