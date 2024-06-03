@@ -29,7 +29,7 @@ public partial class TeamMainMenu : System.Web.UI.Page
 
     protected void btnProduct_Click(object sender, EventArgs e)
     {
-
+        Response.Redirect("ProductLogin.aspx"); //redirect to product login page
     }
 
     protected void btnOrder_Click(object sender, EventArgs e)
