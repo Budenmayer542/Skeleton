@@ -28,6 +28,8 @@ public partial class ProductLogin : System.Web.UI.Page
         Password = Convert.ToString(txtPassword.Text);
         //Find the record
         Found = AnUser.FindUser(UserName, Password);
+        //Add a session to capture the user name
+        Session["AnUser"] = AnUser;
         //If a field is empty
         if (txtUserName.Text == "")
         {
@@ -50,5 +52,10 @@ public partial class ProductLogin : System.Web.UI.Page
             //Record the error
             lblError.Text = "Login details are incorrect. Please try again ";
         }
+    }
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
     }
 }
