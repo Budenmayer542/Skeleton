@@ -27,6 +27,7 @@
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 25px; position: absolute; top: 341px"></asp:Label>
         <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 206px; top: 216px; position: absolute" Text="Comic in stock" />
         <asp:Button ID="btnFind" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 377px; top: 37px; position: absolute" Text="Find" />
+        <asp:Button ID="btnReturn" runat="server" style="z-index: 1; left: 374px; top: 269px; position: absolute; width: 138px" Text="Return to Main Menu" OnClick="btnReturn_Click" />
     </form>
 </body>
 </html>

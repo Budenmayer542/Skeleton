@@ -107,4 +107,9 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         Response.Redirect("ProductList.aspx");
     }
+
+    protected void btnReturn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("TeamMainMenu.aspx");
+    }
 }
