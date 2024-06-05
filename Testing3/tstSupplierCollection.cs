@@ -170,12 +170,12 @@ namespace Testing3
             FilteredSuppliers.ReportBySupplierName("TestComicName"); //apply a supplier name that doesnt exist
             if (FilteredSuppliers.Count == 2) //check to see if the correct number of records are found
             {
-                if (FilteredSuppliers.SupplierList[0].SupplierId != 31) //check to see if the first record is 25
+                if (FilteredSuppliers.SupplierList[0].SupplierId != 6) //check to see if the first record is 25
                 {
                     Ok = false;
                 }
 
-                if (FilteredSuppliers.SupplierList[1].SupplierId != 34) //check to see if the first record is 26
+                if (FilteredSuppliers.SupplierList[1].SupplierId != 7) //check to see if the first record is 26
                 {
                     Ok = false;
                 }
