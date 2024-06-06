@@ -557,8 +557,6 @@ namespace Testing5
             Assert.AreNotEqual(Error, "");
         }
 
-
-
         [TestMethod]
         public void ComicGenreMinLessOne()
         //Test method for Min -1
@@ -872,7 +870,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicPrice = "10000000000000000000";
+            string ComicPrice = "1000000000000000000";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
