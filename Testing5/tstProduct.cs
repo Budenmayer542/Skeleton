@@ -30,70 +30,99 @@ namespace Testing5
             clsProduct AProduct = new clsProduct();
             //Create test data
             Boolean TestData = true;
+            //Assign the data to the property
             AProduct.Active = TestData;
+            //Test to see if the values are the same
             Assert.AreEqual(AProduct.Active, TestData);
         }
 
         [TestMethod]
         public void ComicIdPropertyOK()
         {
+            //Create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //Create test data
             Int32 TestData = 1;
+            //Assign the data to the property
             AProduct.ComicID = TestData;
+            //Test to see if the values are the same
             Assert.AreEqual(AProduct.ComicID, TestData);
 
         }
         [TestMethod]
         public void ComicNameProperty()
         {
+            //Create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //Create test data
             string TestData = "Mirai Nikki Volume 1";
+            //Assign the data to the property
             AProduct.ComicName = TestData;
+            //Test to see if the values are the same
             Assert.AreEqual(AProduct.ComicName, TestData);
         }
 
         [TestMethod]
         public void ComicInitialReleaseDatePropertyOK() 
         {
+            //Create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //Create test data
             DateTime TestData = DateTime.Now.Date;
+            //Assign the data to the property
             AProduct.ComicInitialReleaseDate = TestData;
+            //Test to see if the values are the same
             Assert.AreEqual(AProduct.ComicInitialReleaseDate, TestData);
         }
 
         [TestMethod]
         public void ComicArtistProperty()
         {
+            //Create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //Create test data
             string TestData = "Sakae Esuno";
+            //Assign the data to the property
             AProduct.ComicArtist = TestData;
+            //Test to see if the values are the same
             Assert.AreEqual(AProduct.ComicArtist, TestData);
         }
 
         [TestMethod]
         public void ComicPriceProperty() 
         {
+            //Create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //Create test data
             double TestData = 7.99;
+            //Assign the data to the property
             AProduct.ComicPrice = TestData;
+            //Test to see if the values are the same
             Assert.AreEqual(AProduct.ComicPrice, TestData);
         }
 
         [TestMethod]
         public void ComicGenreProperty() 
         {
+            //Create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //Create test data
             string TestData = "Action";
             AProduct.ComicGenre = TestData;
+            //Test to see if the values are the same
             Assert.AreEqual(AProduct.ComicGenre, TestData);
         }
 
         [TestMethod]
         public void ComicIsComicInStock () 
-        { 
-            clsProduct AProduct = new clsProduct(); 
+        {
+            //Create an instance of the class we want to create
+            clsProduct AProduct = new clsProduct();
+            //Create test data
             Boolean TestData = true;
+            //Assign the data to the property
             AProduct.IsComicInStock =  TestData;
+            //Test to see if the values are the same
             Assert.AreEqual(AProduct.IsComicInStock, TestData);
         }
 
@@ -108,11 +137,12 @@ namespace Testing5
             //Some test data
             Int32 ComicID = 1;
             Found = AProduct.Find(ComicID);
-            //
+            //Check the comic ID property
             if (AProduct.ComicID != 1)
             {
                 OK = false;
             }
+            //test to see that the result is correct
             Assert.IsTrue(OK);
         }
 
@@ -129,7 +159,7 @@ namespace Testing5
             Int32 ComicID = 1;
             //invoke the method
             Found = AProduct.Find(ComicID);
-            //check the post code property
+            //check the comic name property
             if (AProduct.ComicName != "Akame Ga Kill!")
             {
                 OK = false;
@@ -151,7 +181,7 @@ namespace Testing5
             Int32 ComicID = 1;
             //invoke the method
             Found = AProduct.Find(ComicID);
-            //check the post code property
+            //check the comic initial release date property
             if (AProduct.ComicInitialReleaseDate != Convert.ToDateTime("20/04/2010"))
             {
                 OK = false;
@@ -173,7 +203,7 @@ namespace Testing5
             Int32 ComicID = 1;
             //invoke the method
             Found = AProduct.Find(ComicID);
-            //check the post code property
+            //check the comic artist property
             if (AProduct.ComicArtist != "Takahiro")
             {
                 OK = false;
@@ -195,7 +225,7 @@ namespace Testing5
             Int32 ComicID = 1;
             //invoke the method
             Found = AProduct.Find(ComicID);
-            //check the post code property
+            //check the comic price property
             if (AProduct.ComicPrice != 11.99)
             {
                 OK = false;
@@ -217,7 +247,7 @@ namespace Testing5
             Int32 ComicID = 1;
             //invoke the method
             Found = AProduct.Find(ComicID);
-            //check the post code property
+            //check the comic genre property
             if (AProduct.ComicGenre != "Action")
             {
                 OK = false;
@@ -239,7 +269,7 @@ namespace Testing5
             Int32 ComicID = 1;
             //invoke the method
             Found = AProduct.Find(ComicID);
-            //check the post code property
+            //check the is comic in stock property
             if (AProduct.IsComicInStock != true)
             {
                 OK = false;
@@ -248,14 +278,18 @@ namespace Testing5
             Assert.IsTrue(OK);
         }
 
- 
+        // ** VALIDATION ** //
 
         [TestMethod]
         public void ValidMethodOK()
         {
+            //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
             String Error = "";
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
@@ -263,10 +297,15 @@ namespace Testing5
         public void ComicNameMinLessOne()
             //Test method for Min -1
         {
+            //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             string ComicName = "";
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
@@ -279,7 +318,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicName = "a"; //this should be ok
+            string ComicName = "a";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -295,7 +334,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicName = "aa"; //this should be ok
+            string ComicName = "aa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -311,7 +350,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -328,7 +367,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -344,7 +383,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -361,7 +400,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            string ComicName = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -370,7 +409,7 @@ namespace Testing5
 
         [TestMethod]
         public void ComicNameExMax()
-        // Test method for Max + 1
+        // Test method for Extreme Max
 
         {
             //create an instance of the class we want to create
@@ -386,22 +425,19 @@ namespace Testing5
             Assert.AreNotEqual(Error, "");
         }
 
-        ////
-        ///
-        ///
-
-
-
-        /////
-        ///
         [TestMethod]
         public void ComicArtistMinLessOne()
         //Test method for Min -1
         {
+            //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             string ComicArtist = "";
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
@@ -414,7 +450,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicArtist = "a"; //this should be ok
+            string ComicArtist = "a";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -430,7 +466,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicArtist = "aa"; //this should be ok
+            string ComicArtist = "aa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -446,7 +482,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -463,7 +499,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -479,7 +515,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -496,7 +532,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            string ComicArtist = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -527,10 +563,15 @@ namespace Testing5
         public void ComicGenreMinLessOne()
         //Test method for Min -1
         {
+            //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             string ComicGenre = "";
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
@@ -543,7 +584,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicGenre = "a"; //this should be ok
+            string ComicGenre = "a";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -559,7 +600,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicGenre = "aa"; //this should be ok
+            string ComicGenre = "aa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -575,7 +616,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -592,7 +633,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -608,7 +649,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -625,7 +666,7 @@ namespace Testing5
             //string variable to store any error message
             String Error = "";
             //create some test data to pass to the method
-            string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; //this should be ok
+            string ComicGenre = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
             //test to see that the result is correct
@@ -653,74 +694,104 @@ namespace Testing5
         [TestMethod]
         public void ComicInitialReleaseDateExtremeMin()
         {
+            //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(-100);
             string DateAdded = TestDate.ToString();
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
         public void ComicInitialReleaseDateMinLessOne()
         {
+            //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddDays(-1);
             string DateAdded = TestDate.ToString();
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
         public void ComicInitialReleaseDateMin()
         {
+            //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             string DateAdded = TestDate.ToString();
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
         public void ComicInitialReleaseDateMinPlusOne()
         {
+            //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddDays(1);
             string DateAdded = TestDate.ToString();
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
         public void ComicInitialReleaseDateExtrememMax()
         {
+            //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             DateTime TestDate;
             TestDate = DateTime.Now.Date;
             TestDate = TestDate.AddYears(100);
             string DateAdded = TestDate.ToString();
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
         [TestMethod]
         public void ComicInitialReleaseDateInvalid()
         {
+            //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             string ComicInitialReleaseDate = "Not a date :)";
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
@@ -728,10 +799,13 @@ namespace Testing5
         public void ComicPriceMinLessOne()
         {  //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
-            //create some test data to assign to the property
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             string ComicPrice = "-0.01";
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
@@ -739,10 +813,13 @@ namespace Testing5
         public void ComicPriceMin()
         {  //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
-            //create some test data to assign to the property
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             string ComicPrice = "0.00";
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
@@ -750,10 +827,13 @@ namespace Testing5
         public void ComicPriceMinPlusOne()
         {  //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
-            //create some test data to assign to the property
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             string ComicPrice = "0.01";
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
@@ -761,10 +841,13 @@ namespace Testing5
         public void ComicPriceMaxLessOne()
         {  //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
-            //create some test data to assign to the property
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             string ComicPrice = "999999999999999999.98";
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
@@ -772,10 +855,13 @@ namespace Testing5
         public void ComicPriceMax()
         {  //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
-            //create some test data to assign to the property
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             string ComicPrice = "999999999999999999.99";
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
 
@@ -783,10 +869,13 @@ namespace Testing5
         public void ComicPriceMaxPlusOne()
         {  //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
-            //create some test data to assign to the property
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             string ComicPrice = "10000000000000000000";
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreNotEqual(Error, "");
         }
 
@@ -794,10 +883,13 @@ namespace Testing5
         public void ComicPriceMid()
         {  //create an instance of the class we want to create
             clsProduct AProduct = new clsProduct();
-            //create some test data to assign to the property
+            //string variable to store any error message
             String Error = "";
+            //create some test data to pass to the method
             string ComicPrice = "499999999999999999.99";
+            //invoke the method
             Error = AProduct.Valid(ComicName, ComicArtist, ComicInitialReleaseDate, ComicGenre, ComicPrice);
+            //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
     }

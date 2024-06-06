@@ -4,43 +4,45 @@ namespace ClassLibrary
 {
     public class clsProduct
     {
-        public clsProduct()
-        {
-            
-        }
-
         public bool Active { get; set; }
 
+        //Private Comic ID property
         private Int32 mComicID;
-        public Int32 ComicID
+        //Public Comic ID property
+        public Int32 ComicID // Public ComicID
         {
             get
-            { 
-                return mComicID; 
+            {
+                //this line of code sends data out of the property
+                return mComicID;
             }
             set 
-            { 
+            {
+                //this line of code allows data into the property
                 mComicID = value; 
             }
         }
 
+        //Private Comic Name property
         private string mComicName;
+        //Public Comic Name property
         public string ComicName
         {
             get
             {
-                
+                //this line of code sends data out of the property   
                 return mComicName;
             }
             set
             {
-                
+                //this line of code allows data into the property
                 mComicName = value;
             }
         }
 
+        //Private Comic Initial Release Date property
         private DateTime mComicInitialReleaseDate;
-        //date added public property
+        //Public Comic Initial Release Date property
         public DateTime ComicInitialReleaseDate
         {
             get
@@ -54,9 +56,9 @@ namespace ClassLibrary
                 mComicInitialReleaseDate = value;
             }
         }
-
+        // Private Comic Artist property
         private string mComicArtist;
-        //post code public property
+        // Public Comic Artist property
         public string ComicArtist
         {
             get
@@ -70,9 +72,10 @@ namespace ClassLibrary
                 mComicArtist = value;
             }
         }
-
+        
+        //Private Comic Price property
         private Double mComicPrice;
-        //date added public property
+        //Public Comic Price property
         public Double ComicPrice
         {
             get
@@ -86,9 +89,10 @@ namespace ClassLibrary
                 mComicPrice = value;
             }
         }
-
+        
+        //Private Comic Genre property
         private string mComicGenre;
-        //town public property
+        //Public Comic Genre property
         public string ComicGenre
         {
             get
@@ -103,8 +107,9 @@ namespace ClassLibrary
             }
         }
 
+        //Private is comic in stock property
         private Boolean mIsComicInStock;
-        //active public property
+        //Public is comic in stock property
         public bool IsComicInStock
         {
             get
@@ -127,6 +132,7 @@ namespace ClassLibrary
             DB.AddParameter("@ComicID", ComicID);
             //Execute the stored procedure
             DB.Execute("sproc_tblComic_FilterByComicID");
+            //Ececutes procedre if the database is not empty
             if (DB.Count == 1)
             {
                 mComicID = Convert.ToInt32(DB.DataTable.Rows[0]["ComicID"]);
@@ -136,10 +142,13 @@ namespace ClassLibrary
                 mComicPrice = Convert.ToDouble(DB.DataTable.Rows[0]["ComicPrice"]);
                 mComicGenre = Convert.ToString(DB.DataTable.Rows[0]["ComicGenre"]);
                 mIsComicInStock = Convert.ToBoolean(DB.DataTable.Rows[0]["IsComicInStock"]);
+                // Return true to indicate no issues
                 return true;
             }
+            // else if no record is found
             else
             {
+                //Return flase to indicate an error
                 return false;
             }
         }

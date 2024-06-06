@@ -101,8 +101,11 @@ namespace Testing5
         [TestMethod]
         public void AddMethodOK()
         {
+            //Create an instance of the class we want to create
             clsProductCollection AllProducts = new clsProductCollection();
+            //Create som test data to assign to the property
             clsProduct TestItem = new clsProduct();
+            //Set its properties
             Int32 PrimaryKey = 0;
             TestItem.ComicID = 1;
             TestItem.ComicName = "A Comic";
@@ -112,16 +115,21 @@ namespace Testing5
             TestItem.ComicGenre = "Action";
             TestItem.IsComicInStock = true;
             AllProducts.ThisProduct = TestItem;
+            //add the item to the test list
             PrimaryKey = AllProducts.Add();
             AllProducts.ThisProduct.Find(PrimaryKey);
+            //Test to see that the two values are the same
             Assert.AreEqual(AllProducts.ThisProduct, TestItem);
         }
 
         [TestMethod]
         public void UpdateMethodOK()
         {
+            //Create an instance of the class we want to create
             clsProductCollection AllProducts = new clsProductCollection();
+            //Create som test data to assign to the property
             clsProduct TestItem = new clsProduct();
+            //Set its properties
             Int32 PrimaryKey = 0;
             TestItem.ComicName = "A Comic";
             TestItem.ComicInitialReleaseDate = DateTime.Now;
@@ -130,7 +138,9 @@ namespace Testing5
             TestItem.ComicGenre = "Action";
             TestItem.IsComicInStock = true;
             AllProducts.ThisProduct = TestItem;
+            //add the item to the test list
             PrimaryKey = AllProducts.Add();
+            //create the new test data
             TestItem.ComicID = PrimaryKey;
             TestItem.ComicName = "fffffc";
             TestItem.ComicInitialReleaseDate = DateTime.Now;
@@ -138,16 +148,22 @@ namespace Testing5
             TestItem.ComicPrice = 777.99;
             TestItem.ComicGenre = "Adventure";
             TestItem.IsComicInStock = false;
+            //set the record based on the new test data 
             AllProducts.Update();
+            //find the record 
             AllProducts.ThisProduct.Find(PrimaryKey);
+            //Test to see that the two values are the same`
             Assert.AreEqual(AllProducts.ThisProduct, TestItem);
         }
 
         [TestMethod]
         public void DeleteMethodOK()
         {
+            //Create an instance of the class we want to create
             clsProductCollection AllProducts = new clsProductCollection();
+            //Create som test data to assign to the property
             clsProduct TestItem = new clsProduct();
+            //Set its properties
             Int32 PrimaryKey = 0;
             TestItem.ComicID = 1;
             TestItem.ComicName = "A Comic";
@@ -157,28 +173,38 @@ namespace Testing5
             TestItem.ComicGenre = "Action";
             TestItem.IsComicInStock = true;
             AllProducts.ThisProduct = TestItem;
+            //add the item to the test list
             PrimaryKey = AllProducts.Add();
             TestItem.ComicID = PrimaryKey;
             AllProducts.ThisProduct.Find(PrimaryKey);
             AllProducts.Delete();
+            //find the record
             Boolean Found = AllProducts.ThisProduct.Find(PrimaryKey);
-            Assert.IsFalse(Found);
+            //test to see if the record was not found
+            Assert.IsFalse(Found); 
         }
 
         [TestMethod]
         public void ReportByComicNameMethodOK()
         {
+            //Create an instance of the class we want to create
             clsProductCollection AllProducts = new clsProductCollection();
+            //Create a filtered instance of the class we want to create
             clsProductCollection FilteredProducts = new clsProductCollection();
+            //Fitler with an empty filter
             FilteredProducts.ReportByComicName("");
+            //Check if al records have been returned
             Assert.AreEqual(AllProducts.Count, FilteredProducts.Count);
         }
 
         [TestMethod]
         public void ReportByComicNameNoneFound()
         {
+            //Create an instance of the class we want to create
             clsProductCollection FilteredProducts = new clsProductCollection();
+            //Apply a filter that will have 0 matches
             FilteredProducts.ReportByComicName("xyx xyx");
+            //check no record has been returned
             Assert.AreEqual(0, FilteredProducts.Count);
         }
 
@@ -194,7 +220,6 @@ namespace Testing5
             //Check that the correct number of records are found
             if (FilteredProduct.Count > 2)
             {
-                //Check to see that the first record is Akame ga kill!
                 if (FilteredProduct.ProductList[0].ComicID != 25) 
                 {
                     OK = false;
@@ -207,7 +232,7 @@ namespace Testing5
                 {
                     OK  = false;
                 }
-            //test to see that there are no records
+            //ckeck is he records are present
             Assert.IsTrue(OK);
             }
         }
