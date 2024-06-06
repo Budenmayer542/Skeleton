@@ -8,7 +8,7 @@ namespace ClassLibrary
     {
         // Private data member for the list
         public List<clsProduct> mProductList = new List<clsProduct>();
-
+        // Private data member for thisProduct
         clsProduct mThisProduct = new clsProduct();
 
 
@@ -48,6 +48,7 @@ namespace ClassLibrary
 
         public clsProductCollection()
         {
+            //Object for data connection
             clsDataConnection DB = new clsDataConnection();
             //Execute the stored procedure
             DB.Execute("tblComic_SelectAll");
