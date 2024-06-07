@@ -199,10 +199,10 @@ namespace ClassLibrary
                 Error = Error + "The sub total may not be blank : ";
             }
             //if the sub total is too long
-            if (subTotal.Length > 6)
+            if (subTotal.Length > 8)
             {
                 //Record the error
-                Error = Error + "The sub total must be less than 9 characters";
+                Error = Error + "The sub total must be less than 8 characters";
             }
             //is the total blank
             if (total.Length == 0)
@@ -211,10 +211,10 @@ namespace ClassLibrary
                 Error = Error + "The total may not be blank : ";
             }
             //if the total is too long
-            if (total.Length > 6)
+            if (total.Length > 8)
             {
                 //Record the error
-                Error = Error + "The total must be less than 9 characters";
+                Error = Error + "The total must be less than 8 characters";
             }
             //is the delivery note blank
             if (deliveryNote.Length == 0)

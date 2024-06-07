@@ -585,7 +585,7 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //this should fail
-            string SubTotal = "9998";
+            string SubTotal = "9998.00";
             //invoke the method
             Error = AnOrder.Valid(ItemCount, DateOfOrder, SubTotal, Total, DeliveryNote);
             //test to see that the result is correct
@@ -600,7 +600,7 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //this should fail
-            string SubTotal = "9999";
+            string SubTotal = "9999.00";
             //invoke the method
             Error = AnOrder.Valid(ItemCount, DateOfOrder, SubTotal, Total, DeliveryNote);
             //test to see that the result is correct
@@ -615,7 +615,7 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //this should fail
-            string SubTotal = "";
+            string SubTotal = "10000.00";
             //invoke the method
             Error = AnOrder.Valid(ItemCount, DateOfOrder, SubTotal, Total, DeliveryNote);
             //test to see that the result is correct
@@ -630,7 +630,7 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //this should fail
-            string SubTotal = "99";
+            string SubTotal = "99.00";
             //invoke the method
             Error = AnOrder.Valid(ItemCount, DateOfOrder, SubTotal, Total, DeliveryNote);
             //test to see that the result is correct
@@ -690,7 +690,7 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //this should fail
-            string Total = "9998";
+            string Total = "9998.00";
             //invoke the method
             Error = AnOrder.Valid(ItemCount, DateOfOrder, SubTotal, Total, DeliveryNote);
             //test to see that the result is correct
@@ -705,7 +705,7 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //this should fail
-            string Total = "9999";
+            string Total = "9999.00";
             //invoke the method
             Error = AnOrder.Valid(ItemCount, DateOfOrder, SubTotal, Total, DeliveryNote);
             //test to see that the result is correct
@@ -720,7 +720,7 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //this should fail
-            string Total = "";
+            string Total = "10000.00";
             //invoke the method
             Error = AnOrder.Valid(ItemCount, DateOfOrder, SubTotal, Total, DeliveryNote);
             //test to see that the result is correct
@@ -735,7 +735,7 @@ namespace Testing4
             //string variable to store any error message
             String Error = "";
             //this should fail
-            string Total = "99";
+            string Total = "99.00";
             //invoke the method
             Error = AnOrder.Valid(ItemCount, DateOfOrder, SubTotal, Total, DeliveryNote);
             //test to see that the result is correct
@@ -828,6 +828,7 @@ namespace Testing4
             String Error = "";
             //this should fail
             string DeliveryNote = "";
+            DeliveryNote = DeliveryNote.PadRight(501, 'a');
             //invoke the method
             Error = AnOrder.Valid(ItemCount, DateOfOrder, SubTotal, Total, DeliveryNote);
             //test to see that the result is correct
